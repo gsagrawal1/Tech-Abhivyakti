@@ -1,12 +1,58 @@
-
-
 {
   "version": 2,
   "routes": [
-    { "handle": "filesystem" }, 
+    { "handle": "filesystem" },
+    { 
+      "src": "/admin/(.*)", 
+      "dest": "/api/bliss/admin/$1" 
+    },
+    { 
+      "src": "/register/(.*)", 
+      "dest": "/api/bliss/register/$1" 
+    },
+    { 
+      "src": "/logout/(.*)", 
+      "dest": "/api/bliss/logout/$1" 
+    },
+    { 
+      "src": "/home/(.*)", 
+      "dest": "/api/bliss/home/$1" 
+    },
+    { 
+      "src": "/myprofile-lg/(.*)", 
+      "dest": "/api/bliss/myprofile-lg/$1" 
+    },
+    { 
+      "src": "/search/(.*)", 
+      "dest": "/api/bliss/search/$1" 
+    },
+    { 
+      "src": "/blogs/(.*)", 
+      "dest": "/api/bliss/blogs/$1" 
+    },
+    { 
+      "src": "/news/(.*)", 
+      "dest": "/api/bliss/news/$1" 
+    },
+    { 
+      "src": "/sports/(.*)", 
+      "dest": "/api/bliss/sports/$1" 
+    },
+    { 
+      "src": "/content/(.*)", 
+      "dest": "/api/bliss/content/$1" 
+    },
+    { 
+      "src": "/content0/(.*)", 
+      "dest": "/api/bliss/content0/$1" 
+    },
+    { 
+      "src": "/events/(.*)", 
+      "dest": "/api/bliss/events/$1" 
+    },
     { 
       "src": "/(.*)", 
-      "dest": "/bliss.wsgi" 
+      "dest": "/api/bliss/$1" 
     }
   ]
 }
