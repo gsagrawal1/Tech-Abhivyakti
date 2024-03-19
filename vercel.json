@@ -1,58 +1,18 @@
 {
-  "version": 2,
   "routes": [
     { "handle": "filesystem" },
-    { 
-      "src": "/admin/(.*)", 
-      "dest": "/api/bliss/admin/$1" 
-    },
-    { 
-      "src": "/register/(.*)", 
-      "dest": "/api/bliss/register/$1" 
-    },
-    { 
-      "src": "/logout/(.*)", 
-      "dest": "/api/bliss/logout/$1" 
-    },
-    { 
-      "src": "/home/(.*)", 
-      "dest": "/api/bliss/home/$1" 
-    },
-    { 
-      "src": "/myprofile-lg/(.*)", 
-      "dest": "/api/bliss/myprofile-lg/$1" 
-    },
-    { 
-      "src": "/search/(.*)", 
-      "dest": "/api/bliss/search/$1" 
-    },
-    { 
-      "src": "/blogs/(.*)", 
-      "dest": "/api/bliss/blogs/$1" 
-    },
-    { 
-      "src": "/news/(.*)", 
-      "dest": "/api/bliss/news/$1" 
-    },
-    { 
-      "src": "/sports/(.*)", 
-      "dest": "/api/bliss/sports/$1" 
-    },
-    { 
-      "src": "/content/(.*)", 
-      "dest": "/api/bliss/content/$1" 
-    },
-    { 
-      "src": "/content0/(.*)", 
-      "dest": "/api/bliss/content0/$1" 
-    },
-    { 
-      "src": "/events/(.*)", 
-      "dest": "/api/bliss/events/$1" 
-    },
-    { 
-      "src": "/(.*)", 
-      "dest": "/api/bliss/$1" 
-    }
+    { "src": "/admin/(.*)", "dest": "admin/$1" },
+    { "src": "/register/(.*)", "dest": "register/$1" },
+    { "src": "/logout/(.*)", "dest": "logout/$1" },
+    { "src": "/home/(.*)", "dest": "home/$1" },
+    { "src": "/myprofile-lg/(.*)", "dest": "myprofile-lg/$1" },
+    { "src": "/search/(.*)", "dest": "search/$1" },
+    { "src": "/blogs/(.*)", "dest": "blogs/$1" },
+    { "src": "/news/(.*)", "dest": "news/$1" },
+    { "src": "/sports/(.*)", "dest": "sports/$1" },
+    { "src": "/content/(.*)", "dest": "content/$1" },
+    { "src": "/content0/(.*)", "dest": "content0/$1" },
+    { "src": "/events/(.*)", "dest": "events/$1" },
+    { "src": "/(.*)", "dest": "login/$1" }
   ]
 }
