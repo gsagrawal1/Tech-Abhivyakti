@@ -1,18 +1,5 @@
 {
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/admin/(.*)", "dest": "admin/$1" },
-    { "src": "/register/(.*)", "dest": "register/$1" },
-    { "src": "/logout/(.*)", "dest": "logout/$1" },
-    { "src": "/home/(.*)", "dest": "home/$1" },
-    { "src": "/myprofile-lg/(.*)", "dest": "myprofile-lg/$1" },
-    { "src": "/search/(.*)", "dest": "search/$1" },
-    { "src": "/blogs/(.*)", "dest": "blogs/$1" },
-    { "src": "/news/(.*)", "dest": "news/$1" },
-    { "src": "/sports/(.*)", "dest": "sports/$1" },
-    { "src": "/content/(.*)", "dest": "content/$1" },
-    { "src": "/content0/(.*)", "dest": "content0/$1" },
-    { "src": "/events/(.*)", "dest": "events/$1" },
-    { "src": "/(.*)", "dest": "index.html" }
+  "rewrites":[
+    {"src": "/(.*)", "destination": "/"}
   ]
 }
