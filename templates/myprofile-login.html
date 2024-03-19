@@ -19,7 +19,7 @@
             <div class="myprofile-left">
                 <div class="inner-myprofile-left">
                     <div class="inprofile-weblogo">
-                        <a href="{% url 'home' %}"> <span><img src="/static/web images/BY__3_-removebg-preview.png"
+                        <a href="{% url 'home' %}"> <span><img src="/static/logo/FINAL.png"
                                     alt=""></span></a>
                         <div class="goback">
 
@@ -218,7 +218,8 @@
                 <div class="inner-myprofile-right">
                     <div class="myprofile-top">
                         <div class="cover-image">
-                            <img src="https://flowbite.com/docs/images/examples/image-3@2x.jpg" alt="">
+                            <img src="/static/web images/WhatsApp Image 2024-03-19 at 11.24.17 PM.jpeg" alt="">
+                            <!-- <img src="https://flowbite.com/docs/images/examples/image-3@2x.jpg" alt=""> -->
                             <div class="edit-cover-image">
                                 <div class="edit-camera-icon-c">
                                     <span class="material-symbols-outlined">
@@ -682,7 +683,7 @@
                                                     <div class="cmnt-user-circle-div">
                                                         <div class="cmnt-user-circle">
                                                             {% for userdetail in Userdetail %}
-                                                            {% if userdetail.user == s.user %}
+                                                            {% if userdetail.user == user %}
                                                             <img src="{{ userdetail.Profileimage.url }}"
                                                                 alt="">
                                                                 {% endif %}
@@ -734,19 +735,17 @@
                                     <div class="inner-desc-container-label"><span>About me</span></div>
                                     <div class="inner-desc-container-items">
                                         <div class="inner-items-icon"><span class="material-symbols-outlined">
-                                                workspace_premium
+                                                location_on
                                             </span></div>
-                                        <div class="inner-items-text"><span class="default">Works at&nbsp;<span
-                                                    class="dynamic-user-data">Microsoft</span></span></div>
+                                        <div class="inner-items-text"><span class="default">From&nbsp;<span
+                                                    class="dynamic-user-data">Chandigarh</span></span></div>
                                     </div>
                                     <div class="inner-desc-container-items">
                                         <div class="inner-items-icon"><span class="material-symbols-outlined">
                                                 work
                                             </span></div>
                                         <div class="inner-items-text"><span class="default">Works at &nbsp;<span
-                                                    class="dynamic-user-data">This Lorem, ipsum dolor sit amet
-                                                    consectetur
-                                                    adipisicing elit.</span></span></div>
+                                                    class="dynamic-user-data">Currently a student</span></span></div>
                                     </div>
                                     <div class="inner-desc-container-items">
                                         <div class="inner-items-icon"><span class="material-symbols-outlined">
@@ -758,12 +757,10 @@
 
                                     <div class="inner-desc-container-items">
                                         <div class="inner-items-icon"><span class="material-symbols-outlined">
-                                                school
+                                                home
                                             </span></div>
-                                        <div class="inner-items-text"><span class="default">Works at&nbsp;<span
-                                                    class="dynamic-user-data">This Lorem, ipsum dolor sit amet
-                                                    consectetur
-                                                    adipisicing elit.</span></span></div>
+                                        <div class="inner-items-text"><span class="default">Lives in&nbsp;<span
+                                                    class="dynamic-user-data">Delhi NCR, India</span></span></div>
                                     </div>
                                 </div>
                                 <div class="inner-desc-container-middle">
@@ -772,22 +769,22 @@
                                         <div class="inner-items-icon"><span class="material-symbols-outlined">
                                                 school
                                             </span></div>
-                                        <div class="inner-items-text"><span class="default">Studied at&nbsp;<span
-                                                    class="dynamic-user-data">Chitkara university</span></span></div>
+                                        <div class="inner-items-text"><span class="default">Facebook : &nbsp;<span
+                                                    class="dynamic-user-data">facebook_id.com</span></span></div>
                                     </div>
                                     <div class="inner-desc-container-items">
                                         <div class="inner-items-icon"><span class="material-symbols-outlined">
                                                 school
                                             </span></div>
-                                        <div class="inner-items-text"><span class="default">Studied at&nbsp;<span
-                                                    class="dynamic-user-data">Chitkara university</span></span></div>
+                                        <div class="inner-items-text"><span class="default">Linkedin : &nbsp;<span
+                                                    class="dynamic-user-data">linkedin_id.com</span></span></div>
                                     </div>
                                     <div class="inner-desc-container-items">
                                         <div class="inner-items-icon"><span class="material-symbols-outlined">
                                                 school
                                             </span></div>
-                                        <div class="inner-items-text"><span class="default">Studied at&nbsp;<span
-                                                    class="dynamic-user-data">Chitkara university</span></span></div>
+                                        <div class="inner-items-text"><span class="default">Github : &nbsp;<span
+                                                    class="dynamic-user-data">github.id.com</span></span></div>
                                     </div>
                                 </div>
                                 <div class="inner-desc-container-bottom">
@@ -795,7 +792,16 @@
                                     <div class="inner-desc-container-grid">
                                         <div class="followercard">
                                             <div class="followerimgdiv">
-                                                <img src="/static/web images/WhatsApp Image 2024-03-13 at 1.30.12 PM.jpeg"
+                                                <img src="/static/web images/04d7024ad3d3d49a31511cf43cd3f3c4.jpg" style="object-fit: fill;"
+                                                    alt="">
+                                            </div>
+                                            <div class="followername">
+                                                <span>Aashish</span>
+                                            </div>
+                                        </div>
+                                        <div class="followercard">
+                                            <div class="followerimgdiv">
+                                                <img src="/static/web images/4e22beef6d94640c45a1b15f4a158b23.jpg"
                                                     alt="">
                                             </div>
                                             <div class="followername">
@@ -804,29 +810,20 @@
                                         </div>
                                         <div class="followercard">
                                             <div class="followerimgdiv">
-                                                <img src="/static/web images/WhatsApp Image 2024-03-13 at 1.30.12 PM.jpeg"
+                                                <img src="/static/web images/7e36a39d54b666b0102da9dc1e7d8967.jpg"
                                                     alt="">
                                             </div>
                                             <div class="followername">
-                                                <span>Abhinav Pandit</span>
+                                                <span>Gaurav</span>
                                             </div>
                                         </div>
                                         <div class="followercard">
                                             <div class="followerimgdiv">
-                                                <img src="/static/web images/WhatsApp Image 2024-03-13 at 1.30.12 PM.jpeg"
+                                                <img src="/static/web images/997282cb1ac48f7e4fb9eab06e8a5afc.jpg"
                                                     alt="">
                                             </div>
                                             <div class="followername">
-                                                <span>Abhinav Pandit</span>
-                                            </div>
-                                        </div>
-                                        <div class="followercard">
-                                            <div class="followerimgdiv">
-                                                <img src="/static/web images/WhatsApp Image 2024-03-13 at 1.30.12 PM.jpeg"
-                                                    alt="">
-                                            </div>
-                                            <div class="followername">
-                                                <span>Abhinav Pandit</span>
+                                                <span>Arush Verma</span>
                                             </div>
                                         </div>
 

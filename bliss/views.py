@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login as auth_login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import LoginForm , RegisterForm, Uploadinput
 from marque_feature.models import marquee_feature_1,marquee_feature_2,marquee_feature_3
-from home_card.models import home_card_1, home_card_2, home_card_3, home_card_4
+from home_card.models import home_card_1, home_card_2, home_card_3, home_card_4, home_card_5,home_card_6, book_card_1,book_card_2, book_card_3, book_card_4, book_card_5,sport_card_1,sport_card_2, sport_card_3, sport_card_4, sport_card_5
 from main_videos.models import news_video, blogs_video, sports_video
 from user.models import Post , Comment, Story , Userdetails
 from search.models import Search
@@ -63,7 +63,8 @@ def loginpage(request):
 
 @login_required(login_url='login')
 def home(request):
-    Posts = Post.objects.order_by("-created_at")
+    Posts1 = Post.objects.order_by("-created_at")[0::2]
+    Posts2 = Post.objects.order_by("-created_at")[1::2]
     story = Story.objects.order_by("-created_at")   
     Postform = Uploadinput()
     postcomment = Comment.objects.all()
@@ -109,7 +110,7 @@ def home(request):
             sn.user = request.user
             sn.save()
             return redirect("/home")
-    return render(request, "home.html" ,{'user': request.user, "Uploadform" : Postform, "post": Posts, "comment": postcomment , "story": story, "Userdetail":Userdetail,})
+    return render(request, "home.html" ,{'user': request.user, "Uploadform" : Postform, "post1": Posts1,"post2": Posts2, "comment": postcomment , "story": story, "Userdetail":Userdetail,})
 
 def logging_out(request):
     logout(request)
@@ -147,21 +148,38 @@ def search(request):
     print(len(data))    
     return render(request, "search.html" , data)
 def blogs(request):
-    videoen = news_video.objects.all()
-    data = {'videos' : videoen}
-    return render(request, "blogs.html", data)
-def news(request):
+    videoen = blogs_video.objects.all()
     entry1 = home_card_1.objects.all()
     entry2 = home_card_2.objects.all()
     entry3 = home_card_3.objects.all()
     entry4 = home_card_4.objects.all()
+    entry5 = home_card_5.objects.all()
+    entry6 = home_card_5.objects.all()
+    data={'entry1':entry1, 'entry2':entry2, 'entry3':entry3, 'entry4':entry4,'entry5':entry5,'entry6':entry6 ,'videos': videoen}
+    return render(request, "blogs.html", data)
+
+
+def news(request):
     videoen = news_video.objects.all()
-    data={'entry1':entry1, 'entry2':entry2, 'entry2':entry3, 'entry4':entry4 ,'videos': videoen}
+    entry1 = book_card_1.objects.all()
+    entry2 = book_card_2.objects.all()
+    entry3 = book_card_3.objects.all()
+    entry4 = book_card_4.objects.all()
+    entry5 = book_card_5.objects.all()
+    data={'entry1':entry1, 'entry2':entry2, 'entry3':entry3, 'entry4':entry4,'entry5':entry5,'videos': videoen}
+
     return render(request, "news.html", data)
 def sports(request):
-    videoen = news_video.objects.all()
-    data = {'videos' : videoen}
+    videoen = sports_video.objects.all()
+    entry1 = sport_card_1.objects.all()
+    entry2 = sport_card_2.objects.all()
+    entry3 = sport_card_3.objects.all()
+    entry4 = sport_card_4.objects.all()
+    entry5 = sport_card_5.objects.all()
+    data={'entry1':entry1, 'entry2':entry2, 'entry3':entry3, 'entry4':entry4,'entry5':entry5,'videos': videoen}
     return render(request, "sports.html", data)
+
+
 def content(request):
     return render(request, "content.html")
 

@@ -41,12 +41,22 @@
                 <div class="innerdescribe-right">
                     <div class="videoscrollar">
                         <div class="videoscrollar-bar">
+                            <div class="mainvid-left-btn mainvideoscrollbtns">
+                                <span class="material-symbols-outlined ">
+                                    arrow_back_ios_new
+                                    </span>
+                            </div>
                             {% for i in videos %}
                             <div class="videoscrollar-bar-child">
                                 <div class="videoscrollar-bar-child-content" 
                                     ><img src="{{ i.video_img_preview.url }}" alt="" srcset=""></div>
                             </div>
                            {% endfor %}
+                           <div class="mainvid-right-btn mainvideoscrollbtns" >
+                            <span class="material-symbols-outlined ">
+                                arrow_forward_ios
+                                </span>
+                           </div>
 
                         </div>
                     </div>
@@ -73,9 +83,9 @@
             </div>
             <div class="horz">
                 <div class="fixed">
-                    <h1>Aus Tour to Ind</h1>
-                    <h2>5 T20I serie</h2>
-                    <p>Ausies are back to grab T20 series against their world cup final opponents in thier soil.</p>
+                    <h1>ipl 2024</h1>
+                    <h2>Cricket league</h2>
+                    <p>Ipl is one of the most popular and widely watched cricket leagues in the world, featuring top cricketing talent from around the globe.</p>
                     <div class="fixed-last-text">
                         <div class="fixed-icon"><i class="fas fa-arrow-right"></i> </div>explore all matches
                     </div>
@@ -90,14 +100,14 @@
                                     </button>
                                 </div>
                                 <div class="scroll-images" id="scroll-images-1">
+                                    {% for card in entry1 %}
                                     <div class="child">
                                         <div class="slider-image">
                                             <a href="test.html">
-                                                <img src="https://cf-images.eu-west-1.prod.boltdns.net/v1/static/3588749423001/fc486e91-3a14-462e-ad07-cc9daf005b08/a26cb473-a8f6-4834-a9d5-95bf4ffffac8/1280x720/match/image.jpg">
+                                                <img src="{{ card.card_image.url }}">
                                                 <div class="slider-image-hover-text">
                                                     <div class="slider-image-hover-text-1">India</div>
-                                                    <div class="slider-image-hover-text-2">Lorem ipsum dolor sit amet
-                                                        consectetur adipisicing elit.</div>
+                                                    <div class="slider-image-hover-text-2">{{card.card_desc}}</div>
                                                     <div class="slider-image-hover-text-3"> India VS Australia<i
                                                             class="fa-solid fa-arrow-right"></i></div>
                                                 </div>
@@ -105,96 +115,8 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="child">
-                                        <div class="slider-image">
-                                            <a href="test.html">
-                                                <img src="/static/web images/america.jpeg">
-                                                <div class="slider-image-hover-text">
-                                                    <div class="slider-image-hover-text-1">America</div>
-                                                    <div class="slider-image-hover-text-2">Lorem ipsum dolor sit amet
-                                                        consectetur adipisicing elit.</div>
-                                                    <div class="slider-image-hover-text-3"> 70 Opportunities<i
-                                                            class="fa-solid fa-arrow-right"></i></div>
-                                                </div>
-                                                <div class="slider-img-text">America</div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="child">
-                                        <div class="slider-image">
-                                            <a href="test.html">
-                                                <img src="/static/web images/nepal.jpeg">
-                                                <div class="slider-image-hover-text">
-                                                    <div class="slider-image-hover-text-1">Nepal</div>
-                                                    <div class="slider-image-hover-text-2">Lorem ipsum dolor sit amet
-                                                        consectetur adipisicing elit.</div>
-                                                    <div class="slider-image-hover-text-3"> 45 Opportunities<i
-                                                            class="fa-solid fa-arrow-right"></i></div>
-                                                </div>
-                                                <div class="slider-img-text">Nepal</div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="child">
-                                        <div class="slider-image">
-                                            <a href="test.html">
-                                                <img src="/static/web images/italy.jpeg">
-                                                <div class="slider-image-hover-text">
-                                                    <div class="slider-image-hover-text-1">Italy</div>
-                                                    <div class="slider-image-hover-text-2">Lorem ipsum dolor sit amet
-                                                        consectetur adipisicing elit.</div>
-                                                    <div class="slider-image-hover-text-3"> 56 Opportunities<i
-                                                            class="fa-solid fa-arrow-right"></i></div>
-                                                </div>
-                                                <div class="slider-img-text">Italy</div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="child">
-                                        <div class="slider-image">
-                                            <a href="test.html">
-                                                <img src="/static/web images/germany.jpeg">
-                                                <div class="slider-image-hover-text">
-                                                    <div class="slider-image-hover-text-1">Germany</div>
-                                                    <div class="slider-image-hover-text-2">Lorem ipsum dolor sit amet
-                                                        consectetur adipisicing elit.</div>
-                                                    <div class="slider-image-hover-text-3"> 62 Opportunities<i
-                                                            class="fa-solid fa-arrow-right"></i></div>
-                                                </div>
-                                                <div class="slider-img-text">Germany</div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="child">
-                                        <div class="slider-image">
-                                            <a href="test.html">
-                                                <img src="/static/web images/australia.jpeg">
-                                                <div class="slider-image-hover-text">
-                                                    <div class="slider-image-hover-text-1">Australia</div>
-                                                    <div class="slider-image-hover-text-2">Lorem ipsum dolor sit amet
-                                                        consectetur adipisicing elit.</div>
-                                                    <div class="slider-image-hover-text-3"> 74 Opportunities<i
-                                                            class="fa-solid fa-arrow-right"></i></div>
-                                                </div>
-                                                <div class="slider-img-text">Australia</div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="child">
-                                        <div class="slider-image">
-                                            <a href="test.html">
-                                                <img src="/static/web images/japan.jpeg">
-                                                <div class="slider-image-hover-text">
-                                                    <div class="slider-image-hover-text-1">Japan</div>
-                                                    <div class="slider-image-hover-text-2">Lorem ipsum dolor sit amet
-                                                        consectetur adipisicing elit.</div>
-                                                    <div class="slider-image-hover-text-3"> 80 Opportunities<i
-                                                            class="fa-solid fa-arrow-right"></i></div>
-                                                </div>
-                                                <div class="slider-img-text">Japan</div>
-                                            </a>
-                                        </div>
-                                    </div>
+                                    {% endfor %}
+                                   
                                 </div>
                                 <div class="btn-child-2">
                                     <button class="icon" onclick="scrollr(0)">
@@ -209,9 +131,11 @@
             <div class="horz-background">
                 <div class="horz">
                     <div class="fixed">
-                        <h1>volunteering</h1>
-                        <h2>abroad</h2>
-                        <p>A wide range of meaningful volunteering options in the world.</p>
+                        <h1>NBA 2024</h1>
+                        <h2>Basketball league</h2>
+                        <p>
+
+                            The NBA, or National Basketball Association, is the premier men's professional basketball league in the world.  </p>
                         <div class="fixed-last-text">
                             <div class="fixed-icon"><i class="fas fa-arrow-right"></i> </div>explore all programs
                         </div>
@@ -226,15 +150,14 @@
                                         </button>
                                     </div>
                                     <div class="scroll-images" id="scroll-images-2">
+                                        {% for card in entry2 %}
                                         <div class="child">
                                             <div class="slider-image">
                                                 <a href="test.html">
-                                                    <img src="/static/web images/tanzania.jpeg">
+                                                    <img src="{{ card.card_image.url }}">
                                                     <div class="slider-image-hover-text">
                                                         <div class="slider-image-hover-text-1">Tanzania</div>
-                                                        <div class="slider-image-hover-text-2">Lorem ipsum dolor sit
-                                                            amet
-                                                            consectetur adipisicing elit.</div>
+                                                        <div class="slider-image-hover-text-2">{{card.card_desc}}</div>
                                                         <div class="slider-image-hover-text-3"> 65 Opportunities<i
                                                                 class="fa-solid fa-arrow-right"></i></div>
                                                     </div>
@@ -242,102 +165,8 @@
                                                 </a>
                                             </div>
                                         </div>
-                                        <div class="child">
-                                            <div class="slider-image">
-                                                <a href="test.html">
-                                                    <img src="/static/web images/china.jpeg">
-                                                    <div class="slider-image-hover-text">
-                                                        <div class="slider-image-hover-text-1">China</div>
-                                                        <div class="slider-image-hover-text-2">Lorem ipsum dolor sit
-                                                            amet
-                                                            consectetur adipisicing elit.</div>
-                                                        <div class="slider-image-hover-text-3"> 65 Opportunities<i
-                                                                class="fa-solid fa-arrow-right"></i></div>
-                                                    </div>
-                                                    <div class="slider-img-text">China</div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="child">
-                                            <div class="slider-image">
-                                                <a href="test.html">
-                                                    <img src="/static/web images/nicargua.jpeg">
-                                                    <div class="slider-image-hover-text">
-                                                        <div class="slider-image-hover-text-1">Nicargua</div>
-                                                        <div class="slider-image-hover-text-2">Lorem ipsum dolor sit
-                                                            amet
-                                                            consectetur adipisicing elit.</div>
-                                                        <div class="slider-image-hover-text-3"> 65 Opportunities<i
-                                                                class="fa-solid fa-arrow-right"></i></div>
-                                                    </div>
-                                                    <div class="slider-img-text">Nicargua</div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="child">
-                                            <div class="slider-image">
-                                                <a href="test.html">
-                                                    <img src="/static/web images/italy.jpeg">
-                                                    <div class="slider-image-hover-text">
-                                                        <div class="slider-image-hover-text-1">Japan</div>
-                                                        <div class="slider-image-hover-text-2">Lorem ipsum dolor sit
-                                                            amet
-                                                            consectetur adipisicing elit.</div>
-                                                        <div class="slider-image-hover-text-3"> 65 Opportunities<i
-                                                                class="fa-solid fa-arrow-right"></i></div>
-                                                    </div>
-                                                    <div class="slider-img-text">Japan</div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="child">
-                                            <div class="slider-image">
-                                                <a href="test.html">
-                                                    <img src="/static/web images/maldives.jpeg">
-                                                    <div class="slider-image-hover-text">
-                                                        <div class="slider-image-hover-text-1">Maldives</div>
-                                                        <div class="slider-image-hover-text-2">Lorem ipsum dolor sit
-                                                            amet
-                                                            consectetur adipisicing elit.</div>
-                                                        <div class="slider-image-hover-text-3"> 65 Opportunities<i
-                                                                class="fa-solid fa-arrow-right"></i></div>
-                                                    </div>
-                                                    <div class="slider-img-text">Maldives</div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="child">
-                                            <div class="slider-image">
-                                                <a href="test.html">
-                                                    <img src="/static/web images/thailand.jpeg">
-                                                    <div class="slider-image-hover-text">
-                                                        <div class="slider-image-hover-text-1">Thailand</div>
-                                                        <div class="slider-image-hover-text-2">Lorem ipsum dolor sit
-                                                            amet
-                                                            consectetur adipisicing elit.</div>
-                                                        <div class="slider-image-hover-text-3"> 65 Opportunities<i
-                                                                class="fa-solid fa-arrow-right"></i></div>
-                                                    </div>
-                                                    <div class="slider-img-text">Thailand</div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="child">
-                                            <div class="slider-image">
-                                                <a href="test.html">
-                                                    <img src="/static/web images/peru.jpeg">
-                                                    <div class="slider-image-hover-text">
-                                                        <div class="slider-image-hover-text-1">Peru</div>
-                                                        <div class="slider-image-hover-text-2">Lorem ipsum dolor sit
-                                                            amet
-                                                            consectetur adipisicing elit.</div>
-                                                        <div class="slider-image-hover-text-3"> 65 Opportunities<i
-                                                                class="fa-solid fa-arrow-right"></i></div>
-                                                    </div>
-                                                    <div class="slider-img-text">Peru</div>
-                                                </a>
-                                            </div>
-                                        </div>
+                                        {% endfor %}
+                                       
                                     </div>
                                     <div class="btn-child-2">
                                         <button class="icon" onclick="scrollr(1)">
@@ -365,11 +194,12 @@
             </div>
             <div class="horz">
                 <div class="fixed">
-                    <h1>Working holidays</h1>
-                    <h2>Programs</h2>
-                    <p>Working holiday's around the world! in japan, india. Try something different!</p>
+                    <h1>Laliga</h1>
+                    <h2>Football league</h2>
+                    <p>
+                        La Liga, short for "Liga Nacional de Fútbol Profesional," is the top professional football division in Spain. </p>
                     <div class="fixed-last-text">
-                        <div class="fixed-icon"><i class="fas fa-arrow-right"></i> </div>explore all programs
+                        <div class="fixed-icon"><i class="fas fa-arrow-right"></i> </div>explore all matches
                     </div>
                 </div>
                 <div class="horz-scroll">
@@ -382,111 +212,23 @@
                                     </button>
                                 </div>
                                 <div class="scroll-images" id="scroll-images-1">
+                                    {% for card in entry3 %}
                                     <div class="child">
                                         <div class="slider-image">
                                             <a href="test.html">
-                                                <img src="/static/web images/india.jpeg">
+                                                <img src="{{ card.card_image.url }}">
                                                 <div class="slider-image-hover-text">
                                                     <div class="slider-image-hover-text-1">India</div>
-                                                    <div class="slider-image-hover-text-2">Lorem ipsum dolor sit amet
-                                                        consectetur adipisicing elit.</div>
-                                                    <div class="slider-image-hover-text-3"> 65 Opportunities<i
+                                                    <div class="slider-image-hover-text-2">{{card.card_desc}}</div>
+                                                    <div class="slider-image-hover-text-3"> India VS Australia<i
                                                             class="fa-solid fa-arrow-right"></i></div>
                                                 </div>
                                                 <div class="slider-img-text">India</div>
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="child">
-                                        <div class="slider-image">
-                                            <a href="test.html">
-                                                <img src="/static/web images/america.jpeg">
-                                                <div class="slider-image-hover-text">
-                                                    <div class="slider-image-hover-text-1">America</div>
-                                                    <div class="slider-image-hover-text-2">Lorem ipsum dolor sit amet
-                                                        consectetur adipisicing elit.</div>
-                                                    <div class="slider-image-hover-text-3"> 70 Opportunities<i
-                                                            class="fa-solid fa-arrow-right"></i></div>
-                                                </div>
-                                                <div class="slider-img-text">America</div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="child">
-                                        <div class="slider-image">
-                                            <a href="test.html">
-                                                <img src="/static/web images/nepal.jpeg">
-                                                <div class="slider-image-hover-text">
-                                                    <div class="slider-image-hover-text-1">Nepal</div>
-                                                    <div class="slider-image-hover-text-2">Lorem ipsum dolor sit amet
-                                                        consectetur adipisicing elit.</div>
-                                                    <div class="slider-image-hover-text-3"> 45 Opportunities<i
-                                                            class="fa-solid fa-arrow-right"></i></div>
-                                                </div>
-                                                <div class="slider-img-text">Nepal</div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="child">
-                                        <div class="slider-image">
-                                            <a href="test.html">
-                                                <img src="/static/web images/italy.jpeg">
-                                                <div class="slider-image-hover-text">
-                                                    <div class="slider-image-hover-text-1">Italy</div>
-                                                    <div class="slider-image-hover-text-2">Lorem ipsum dolor sit amet
-                                                        consectetur adipisicing elit.</div>
-                                                    <div class="slider-image-hover-text-3"> 56 Opportunities<i
-                                                            class="fa-solid fa-arrow-right"></i></div>
-                                                </div>
-                                                <div class="slider-img-text">Italy</div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="child">
-                                        <div class="slider-image">
-                                            <a href="test.html">
-                                                <img src="/static/web images/germany.jpeg">
-                                                <div class="slider-image-hover-text">
-                                                    <div class="slider-image-hover-text-1">Germany</div>
-                                                    <div class="slider-image-hover-text-2">Lorem ipsum dolor sit amet
-                                                        consectetur adipisicing elit.</div>
-                                                    <div class="slider-image-hover-text-3"> 62 Opportunities<i
-                                                            class="fa-solid fa-arrow-right"></i></div>
-                                                </div>
-                                                <div class="slider-img-text">Germany</div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="child">
-                                        <div class="slider-image">
-                                            <a href="test.html">
-                                                <img src="/static/web images/australia.jpeg">
-                                                <div class="slider-image-hover-text">
-                                                    <div class="slider-image-hover-text-1">Australia</div>
-                                                    <div class="slider-image-hover-text-2">Lorem ipsum dolor sit amet
-                                                        consectetur adipisicing elit.</div>
-                                                    <div class="slider-image-hover-text-3"> 74 Opportunities<i
-                                                            class="fa-solid fa-arrow-right"></i></div>
-                                                </div>
-                                                <div class="slider-img-text">Australia</div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="child">
-                                        <div class="slider-image">
-                                            <a href="test.html">
-                                                <img src="/static/web images/japan.jpeg">
-                                                <div class="slider-image-hover-text">
-                                                    <div class="slider-image-hover-text-1">Japan</div>
-                                                    <div class="slider-image-hover-text-2">Lorem ipsum dolor sit amet
-                                                        consectetur adipisicing elit.</div>
-                                                    <div class="slider-image-hover-text-3"> 80 Opportunities<i
-                                                            class="fa-solid fa-arrow-right"></i></div>
-                                                </div>
-                                                <div class="slider-img-text">Japan</div>
-                                            </a>
-                                        </div>
-                                    </div>
+                                    {% endfor %}
+                                   
                                 </div>
                                 <div class="btn-child-2">
                                     <button class="icon" onclick="scrollr(2)">
@@ -501,9 +243,9 @@
             <div class="horz-background">
                 <div class="horz">
                     <div class="fixed">
-                        <h1>volunteering</h1>
-                        <h2>abroad</h2>
-                        <p>A wide range of meaningful volunteering options in the world.</p>
+                        <h1>ISL 2023-2024 </h1>
+                        <h2>Football league</h2>
+                        <p>The Indian Super League was founded in 2013 as a franchise-based football league to promote and develop the sport in India. </p>
                         <div class="fixed-last-text">
                             <div class="fixed-icon"><i class="fas fa-arrow-right"></i> </div>explore all programs
                         </div>
@@ -518,15 +260,14 @@
                                         </button>
                                     </div>
                                     <div class="scroll-images" id="scroll-images-2">
+                                        {% for card in entry4 %}
                                         <div class="child">
                                             <div class="slider-image">
                                                 <a href="test.html">
-                                                    <img src="/static/web images/tanzania.jpeg">
+                                                    <img src="{{ card.card_image.url }}">
                                                     <div class="slider-image-hover-text">
                                                         <div class="slider-image-hover-text-1">Tanzania</div>
-                                                        <div class="slider-image-hover-text-2">Lorem ipsum dolor sit
-                                                            amet
-                                                            consectetur adipisicing elit.</div>
+                                                        <div class="slider-image-hover-text-2">{{card.card_desc}}</div>
                                                         <div class="slider-image-hover-text-3"> 65 Opportunities<i
                                                                 class="fa-solid fa-arrow-right"></i></div>
                                                     </div>
@@ -534,102 +275,8 @@
                                                 </a>
                                             </div>
                                         </div>
-                                        <div class="child">
-                                            <div class="slider-image">
-                                                <a href="test.html">
-                                                    <img src="/static/web images/china.jpeg">
-                                                    <div class="slider-image-hover-text">
-                                                        <div class="slider-image-hover-text-1">China</div>
-                                                        <div class="slider-image-hover-text-2">Lorem ipsum dolor sit
-                                                            amet
-                                                            consectetur adipisicing elit.</div>
-                                                        <div class="slider-image-hover-text-3"> 65 Opportunities<i
-                                                                class="fa-solid fa-arrow-right"></i></div>
-                                                    </div>
-                                                    <div class="slider-img-text">China</div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="child">
-                                            <div class="slider-image">
-                                                <a href="test.html">
-                                                    <img src="/static/web images/nicargua.jpeg">
-                                                    <div class="slider-image-hover-text">
-                                                        <div class="slider-image-hover-text-1">Nicargua</div>
-                                                        <div class="slider-image-hover-text-2">Lorem ipsum dolor sit
-                                                            amet
-                                                            consectetur adipisicing elit.</div>
-                                                        <div class="slider-image-hover-text-3"> 65 Opportunities<i
-                                                                class="fa-solid fa-arrow-right"></i></div>
-                                                    </div>
-                                                    <div class="slider-img-text">Nicargua</div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="child">
-                                            <div class="slider-image">
-                                                <a href="test.html">
-                                                    <img src="/static/web images/italy.jpeg">
-                                                    <div class="slider-image-hover-text">
-                                                        <div class="slider-image-hover-text-1">Japan</div>
-                                                        <div class="slider-image-hover-text-2">Lorem ipsum dolor sit
-                                                            amet
-                                                            consectetur adipisicing elit.</div>
-                                                        <div class="slider-image-hover-text-3"> 65 Opportunities<i
-                                                                class="fa-solid fa-arrow-right"></i></div>
-                                                    </div>
-                                                    <div class="slider-img-text">Japan</div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="child">
-                                            <div class="slider-image">
-                                                <a href="test.html">
-                                                    <img src="/static/web images/maldives.jpeg">
-                                                    <div class="slider-image-hover-text">
-                                                        <div class="slider-image-hover-text-1">Maldives</div>
-                                                        <div class="slider-image-hover-text-2">Lorem ipsum dolor sit
-                                                            amet
-                                                            consectetur adipisicing elit.</div>
-                                                        <div class="slider-image-hover-text-3"> 65 Opportunities<i
-                                                                class="fa-solid fa-arrow-right"></i></div>
-                                                    </div>
-                                                    <div class="slider-img-text">Maldives</div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="child">
-                                            <div class="slider-image">
-                                                <a href="test.html">
-                                                    <img src="/static/web images/thailand.jpeg">
-                                                    <div class="slider-image-hover-text">
-                                                        <div class="slider-image-hover-text-1">Thailand</div>
-                                                        <div class="slider-image-hover-text-2">Lorem ipsum dolor sit
-                                                            amet
-                                                            consectetur adipisicing elit.</div>
-                                                        <div class="slider-image-hover-text-3"> 65 Opportunities<i
-                                                                class="fa-solid fa-arrow-right"></i></div>
-                                                    </div>
-                                                    <div class="slider-img-text">Thailand</div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="child">
-                                            <div class="slider-image">
-                                                <a href="test.html">
-                                                    <img src="/static/web images/peru.jpeg">
-                                                    <div class="slider-image-hover-text">
-                                                        <div class="slider-image-hover-text-1">Peru</div>
-                                                        <div class="slider-image-hover-text-2">Lorem ipsum dolor sit
-                                                            amet
-                                                            consectetur adipisicing elit.</div>
-                                                        <div class="slider-image-hover-text-3"> 65 Opportunities<i
-                                                                class="fa-solid fa-arrow-right"></i></div>
-                                                    </div>
-                                                    <div class="slider-img-text">Peru</div>
-                                                </a>
-                                            </div>
-                                        </div>
+                                        {% endfor %}
+                                       
                                     </div>
                                     <div class="btn-child-2">
                                         <button class="icon" onclick="scrollr(3)">
@@ -652,7 +299,7 @@
                     <div class="channel-card"><img src="data:image/png;base64,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" alt=""></div>
                     <div class="channel-card"><img src="data:image/jpeg;base64,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" alt=""></div>
                     <div class="channel-card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ36oFqdrw0QBXKLZUKmmx2PX-nxlSf_SIlg&usqp=CAU" alt=""></div>
-                    <div class="channel-card"></div>
+                    <div class="channel-card" style="background-color: inherit;"></div>
                 </div>
             </div>
             <footer class="footer">

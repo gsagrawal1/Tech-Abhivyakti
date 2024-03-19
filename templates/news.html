@@ -59,11 +59,11 @@
         <div class="effectness-second">
             <div class="horz">
                 <div class="fixed">
-                    <h1>Working holidays</h1>
-                    <h2>Programs</h2>
-                    <p>Working holiday's around the world! in japan, india. Try something different!</p>
+                    <h1>Trendy</h1>
+                    <h2>new release</h2>
+                    <p>Experience the thrill of diving into the latest literary gems fresh off the press, ready to ignite your imagination and captivate your senses.</p>
                     <div class="fixed-last-text">
-                        <div class="fixed-icon"><i class="fas fa-arrow-right"></i> </div>explore all programs
+                        <div class="fixed-icon"><i class="fas fa-arrow-right"></i> </div>explore all books
                     </div>
                 </div>
                 <div class="horz-scroll">
@@ -76,111 +76,23 @@
                                     </button>
                                 </div>
                                 <div class="scroll-images" id="scroll-images-1">
+                                    {% for card in entry1 %}
                                     <div class="child">
                                         <div class="slider-image">
                                             <a href="test.html">
-                                                <img src="/static/web images/india.jpeg">
+                                                <img src="{{card.card_image.url}}">
                                                 <div class="slider-image-hover-text">
                                                     <div class="slider-image-hover-text-1">India</div>
-                                                    <div class="slider-image-hover-text-2">Lorem ipsum dolor sit amet
-                                                        consectetur adipisicing elit.</div>
-                                                    <div class="slider-image-hover-text-3"> 65 Opportunities<i
+                                                    <div class="slider-image-hover-text-2">{{card.card_desc}}</div>
+                                                    <div class="slider-image-hover-text-3"> Read more<i
                                                             class="fa-solid fa-arrow-right"></i></div>
                                                 </div>
                                                 <div class="slider-img-text">India</div>
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="child">
-                                        <div class="slider-image">
-                                            <a href="test.html">
-                                                <img src="/static/web images/america.jpeg">
-                                                <div class="slider-image-hover-text">
-                                                    <div class="slider-image-hover-text-1">America</div>
-                                                    <div class="slider-image-hover-text-2">Lorem ipsum dolor sit amet
-                                                        consectetur adipisicing elit.</div>
-                                                    <div class="slider-image-hover-text-3"> 70 Opportunities<i
-                                                            class="fa-solid fa-arrow-right"></i></div>
-                                                </div>
-                                                <div class="slider-img-text">America</div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="child">
-                                        <div class="slider-image">
-                                            <a href="test.html">
-                                                <img src="/static/web images/nepal.jpeg">
-                                                <div class="slider-image-hover-text">
-                                                    <div class="slider-image-hover-text-1">Nepal</div>
-                                                    <div class="slider-image-hover-text-2">Lorem ipsum dolor sit amet
-                                                        consectetur adipisicing elit.</div>
-                                                    <div class="slider-image-hover-text-3"> 45 Opportunities<i
-                                                            class="fa-solid fa-arrow-right"></i></div>
-                                                </div>
-                                                <div class="slider-img-text">Nepal</div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="child">
-                                        <div class="slider-image">
-                                            <a href="test.html">
-                                                <img src="/static/web images/italy.jpeg">
-                                                <div class="slider-image-hover-text">
-                                                    <div class="slider-image-hover-text-1">Italy</div>
-                                                    <div class="slider-image-hover-text-2">Lorem ipsum dolor sit amet
-                                                        consectetur adipisicing elit.</div>
-                                                    <div class="slider-image-hover-text-3"> 56 Opportunities<i
-                                                            class="fa-solid fa-arrow-right"></i></div>
-                                                </div>
-                                                <div class="slider-img-text">Italy</div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="child">
-                                        <div class="slider-image">
-                                            <a href="test.html">
-                                                <img src="/static/web images/germany.jpeg">
-                                                <div class="slider-image-hover-text">
-                                                    <div class="slider-image-hover-text-1">Germany</div>
-                                                    <div class="slider-image-hover-text-2">Lorem ipsum dolor sit amet
-                                                        consectetur adipisicing elit.</div>
-                                                    <div class="slider-image-hover-text-3"> 62 Opportunities<i
-                                                            class="fa-solid fa-arrow-right"></i></div>
-                                                </div>
-                                                <div class="slider-img-text">Germany</div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="child">
-                                        <div class="slider-image">
-                                            <a href="test.html">
-                                                <img src="/static/web images/australia.jpeg">
-                                                <div class="slider-image-hover-text">
-                                                    <div class="slider-image-hover-text-1">Australia</div>
-                                                    <div class="slider-image-hover-text-2">Lorem ipsum dolor sit amet
-                                                        consectetur adipisicing elit.</div>
-                                                    <div class="slider-image-hover-text-3"> 74 Opportunities<i
-                                                            class="fa-solid fa-arrow-right"></i></div>
-                                                </div>
-                                                <div class="slider-img-text">Australia</div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="child">
-                                        <div class="slider-image">
-                                            <a href="test.html">
-                                                <img src="/static/web images/japan.jpeg">
-                                                <div class="slider-image-hover-text">
-                                                    <div class="slider-image-hover-text-1">Japan</div>
-                                                    <div class="slider-image-hover-text-2">Lorem ipsum dolor sit amet
-                                                        consectetur adipisicing elit.</div>
-                                                    <div class="slider-image-hover-text-3"> 80 Opportunities<i
-                                                            class="fa-solid fa-arrow-right"></i></div>
-                                                </div>
-                                                <div class="slider-img-text">Japan</div>
-                                            </a>
-                                        </div>
-                                    </div>
+                                    {% endfor %}
+                                
                                 </div>
                                 <div class="btn-child-2">
                                     <button class="icon" onclick="scrollr(0)">
@@ -195,11 +107,11 @@
             <div class="horz-background">
                 <div class="horz">
                     <div class="fixed">
-                        <h1>volunteering</h1>
-                        <h2>abroad</h2>
+                        <h1>Horror</h1>
+                        <h2>Hair-raising</h2>
                         <p>A wide range of meaningful volunteering options in the world.</p>
                         <div class="fixed-last-text">
-                            <div class="fixed-icon"><i class="fas fa-arrow-right"></i> </div>explore all programs
+                            <div class="fixed-icon"><i class="fas fa-arrow-right"></i> </div>explore all books
                         </div>
                     </div>
                     <div class="horz-scroll">
@@ -212,10 +124,11 @@
                                         </button>
                                     </div>
                                     <div class="scroll-images" id="scroll-images-2">
+                                        {% for card in entry2 %}
                                         <div class="child">
                                             <div class="slider-image">
                                                 <a href="test.html">
-                                                    <img src="/static/web images/tanzania.jpeg">
+                                                    <img src="{{card.card_image.url}}">
                                                     <div class="slider-image-hover-text">
                                                         <div class="slider-image-hover-text-1">Tanzania</div>
                                                         <div class="slider-image-hover-text-2">Lorem ipsum dolor sit
@@ -228,102 +141,7 @@
                                                 </a>
                                             </div>
                                         </div>
-                                        <div class="child">
-                                            <div class="slider-image">
-                                                <a href="test.html">
-                                                    <img src="/static/web images/china.jpeg">
-                                                    <div class="slider-image-hover-text">
-                                                        <div class="slider-image-hover-text-1">China</div>
-                                                        <div class="slider-image-hover-text-2">Lorem ipsum dolor sit
-                                                            amet
-                                                            consectetur adipisicing elit.</div>
-                                                        <div class="slider-image-hover-text-3"> 65 Opportunities<i
-                                                                class="fa-solid fa-arrow-right"></i></div>
-                                                    </div>
-                                                    <div class="slider-img-text">China</div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="child">
-                                            <div class="slider-image">
-                                                <a href="test.html">
-                                                    <img src="/static/web images/nicargua.jpeg">
-                                                    <div class="slider-image-hover-text">
-                                                        <div class="slider-image-hover-text-1">Nicargua</div>
-                                                        <div class="slider-image-hover-text-2">Lorem ipsum dolor sit
-                                                            amet
-                                                            consectetur adipisicing elit.</div>
-                                                        <div class="slider-image-hover-text-3"> 65 Opportunities<i
-                                                                class="fa-solid fa-arrow-right"></i></div>
-                                                    </div>
-                                                    <div class="slider-img-text">Nicargua</div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="child">
-                                            <div class="slider-image">
-                                                <a href="test.html">
-                                                    <img src="/static/web images/italy.jpeg">
-                                                    <div class="slider-image-hover-text">
-                                                        <div class="slider-image-hover-text-1">Japan</div>
-                                                        <div class="slider-image-hover-text-2">Lorem ipsum dolor sit
-                                                            amet
-                                                            consectetur adipisicing elit.</div>
-                                                        <div class="slider-image-hover-text-3"> 65 Opportunities<i
-                                                                class="fa-solid fa-arrow-right"></i></div>
-                                                    </div>
-                                                    <div class="slider-img-text">Japan</div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="child">
-                                            <div class="slider-image">
-                                                <a href="test.html">
-                                                    <img src="/static/web images/maldives.jpeg">
-                                                    <div class="slider-image-hover-text">
-                                                        <div class="slider-image-hover-text-1">Maldives</div>
-                                                        <div class="slider-image-hover-text-2">Lorem ipsum dolor sit
-                                                            amet
-                                                            consectetur adipisicing elit.</div>
-                                                        <div class="slider-image-hover-text-3"> 65 Opportunities<i
-                                                                class="fa-solid fa-arrow-right"></i></div>
-                                                    </div>
-                                                    <div class="slider-img-text">Maldives</div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="child">
-                                            <div class="slider-image">
-                                                <a href="test.html">
-                                                    <img src="/static/web images/thailand.jpeg">
-                                                    <div class="slider-image-hover-text">
-                                                        <div class="slider-image-hover-text-1">Thailand</div>
-                                                        <div class="slider-image-hover-text-2">Lorem ipsum dolor sit
-                                                            amet
-                                                            consectetur adipisicing elit.</div>
-                                                        <div class="slider-image-hover-text-3"> 65 Opportunities<i
-                                                                class="fa-solid fa-arrow-right"></i></div>
-                                                    </div>
-                                                    <div class="slider-img-text">Thailand</div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="child">
-                                            <div class="slider-image">
-                                                <a href="test.html">
-                                                    <img src="/static/web images/peru.jpeg">
-                                                    <div class="slider-image-hover-text">
-                                                        <div class="slider-image-hover-text-1">Peru</div>
-                                                        <div class="slider-image-hover-text-2">Lorem ipsum dolor sit
-                                                            amet
-                                                            consectetur adipisicing elit.</div>
-                                                        <div class="slider-image-hover-text-3"> 65 Opportunities<i
-                                                                class="fa-solid fa-arrow-right"></i></div>
-                                                    </div>
-                                                    <div class="slider-img-text">Peru</div>
-                                                </a>
-                                            </div>
-                                        </div>
+                                        {% endfor %}
                                     </div>
                                     <div class="btn-child-2">
                                         <button class="icon" onclick="scrollr(1)">
@@ -339,11 +157,11 @@
         
             <div class="horz">
                 <div class="fixed">
-                    <h1>Working holidays</h1>
-                    <h2>Programs</h2>
-                    <p>Working holiday's around the world! in japan, india. Try something different!</p>
+                    <h1>Mindful</h1>
+                    <h2>sharp your brain</h2>
+                    <p>Sharpen your mind with these thought-provoking, mindful reads.</p>
                     <div class="fixed-last-text">
-                        <div class="fixed-icon"><i class="fas fa-arrow-right"></i> </div>explore all programs
+                        <div class="fixed-icon"><i class="fas fa-arrow-right"></i> </div>explore all books
                     </div>
                 </div>
                 <div class="horz-scroll">
@@ -356,111 +174,23 @@
                                     </button>
                                 </div>
                                 <div class="scroll-images" id="scroll-images-1">
+                                    {% for card in entry3 %}
                                     <div class="child">
                                         <div class="slider-image">
                                             <a href="test.html">
-                                                <img src="/static/web images/india.jpeg">
+                                                <img src="{{card.card_image.url}}">
                                                 <div class="slider-image-hover-text">
                                                     <div class="slider-image-hover-text-1">India</div>
-                                                    <div class="slider-image-hover-text-2">Lorem ipsum dolor sit amet
-                                                        consectetur adipisicing elit.</div>
-                                                    <div class="slider-image-hover-text-3"> 65 Opportunities<i
+                                                    <div class="slider-image-hover-text-2">{{card.card_desc}}</div>
+                                                    <div class="slider-image-hover-text-3"> Read more<i
                                                             class="fa-solid fa-arrow-right"></i></div>
                                                 </div>
                                                 <div class="slider-img-text">India</div>
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="child">
-                                        <div class="slider-image">
-                                            <a href="test.html">
-                                                <img src="/static/web images/america.jpeg">
-                                                <div class="slider-image-hover-text">
-                                                    <div class="slider-image-hover-text-1">America</div>
-                                                    <div class="slider-image-hover-text-2">Lorem ipsum dolor sit amet
-                                                        consectetur adipisicing elit.</div>
-                                                    <div class="slider-image-hover-text-3"> 70 Opportunities<i
-                                                            class="fa-solid fa-arrow-right"></i></div>
-                                                </div>
-                                                <div class="slider-img-text">America</div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="child">
-                                        <div class="slider-image">
-                                            <a href="test.html">
-                                                <img src="/static/web images/nepal.jpeg">
-                                                <div class="slider-image-hover-text">
-                                                    <div class="slider-image-hover-text-1">Nepal</div>
-                                                    <div class="slider-image-hover-text-2">Lorem ipsum dolor sit amet
-                                                        consectetur adipisicing elit.</div>
-                                                    <div class="slider-image-hover-text-3"> 45 Opportunities<i
-                                                            class="fa-solid fa-arrow-right"></i></div>
-                                                </div>
-                                                <div class="slider-img-text">Nepal</div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="child">
-                                        <div class="slider-image">
-                                            <a href="test.html">
-                                                <img src="/static/web images/italy.jpeg">
-                                                <div class="slider-image-hover-text">
-                                                    <div class="slider-image-hover-text-1">Italy</div>
-                                                    <div class="slider-image-hover-text-2">Lorem ipsum dolor sit amet
-                                                        consectetur adipisicing elit.</div>
-                                                    <div class="slider-image-hover-text-3"> 56 Opportunities<i
-                                                            class="fa-solid fa-arrow-right"></i></div>
-                                                </div>
-                                                <div class="slider-img-text">Italy</div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="child">
-                                        <div class="slider-image">
-                                            <a href="test.html">
-                                                <img src="/static/web images/germany.jpeg">
-                                                <div class="slider-image-hover-text">
-                                                    <div class="slider-image-hover-text-1">Germany</div>
-                                                    <div class="slider-image-hover-text-2">Lorem ipsum dolor sit amet
-                                                        consectetur adipisicing elit.</div>
-                                                    <div class="slider-image-hover-text-3"> 62 Opportunities<i
-                                                            class="fa-solid fa-arrow-right"></i></div>
-                                                </div>
-                                                <div class="slider-img-text">Germany</div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="child">
-                                        <div class="slider-image">
-                                            <a href="test.html">
-                                                <img src="/static/web images/australia.jpeg">
-                                                <div class="slider-image-hover-text">
-                                                    <div class="slider-image-hover-text-1">Australia</div>
-                                                    <div class="slider-image-hover-text-2">Lorem ipsum dolor sit amet
-                                                        consectetur adipisicing elit.</div>
-                                                    <div class="slider-image-hover-text-3"> 74 Opportunities<i
-                                                            class="fa-solid fa-arrow-right"></i></div>
-                                                </div>
-                                                <div class="slider-img-text">Australia</div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="child">
-                                        <div class="slider-image">
-                                            <a href="test.html">
-                                                <img src="/static/web images/japan.jpeg">
-                                                <div class="slider-image-hover-text">
-                                                    <div class="slider-image-hover-text-1">Japan</div>
-                                                    <div class="slider-image-hover-text-2">Lorem ipsum dolor sit amet
-                                                        consectetur adipisicing elit.</div>
-                                                    <div class="slider-image-hover-text-3"> 80 Opportunities<i
-                                                            class="fa-solid fa-arrow-right"></i></div>
-                                                </div>
-                                                <div class="slider-img-text">Japan</div>
-                                            </a>
-                                        </div>
-                                    </div>
+                                    {% endfor %}
+                                
                                 </div>
                                 <div class="btn-child-2">
                                     <button class="icon" onclick="scrollr(2)">
@@ -475,11 +205,11 @@
             <div class="horz-background">
                 <div class="horz">
                     <div class="fixed">
-                        <h1>volunteering</h1>
-                        <h2>abroad</h2>
-                        <p>A wide range of meaningful volunteering options in the world.</p>
+                        <h1>Sci-fi</h1>
+                        <h2>Get some thrill</h2>
+                        <p>Science fiction (sci-fi) books are a genre of literature that explore imaginative and speculative concepts, often based on scientific principles, technological advancements, or futuristic settings.</p>
                         <div class="fixed-last-text">
-                            <div class="fixed-icon"><i class="fas fa-arrow-right"></i> </div>explore all programs
+                            <div class="fixed-icon"><i class="fas fa-arrow-right"></i> </div>explore all books
                         </div>
                     </div>
                     <div class="horz-scroll">
@@ -492,10 +222,11 @@
                                         </button>
                                     </div>
                                     <div class="scroll-images" id="scroll-images-2">
+                                        {% for card in entry2 %}
                                         <div class="child">
                                             <div class="slider-image">
                                                 <a href="test.html">
-                                                    <img src="/static/web images/tanzania.jpeg">
+                                                    <img src="{{card.card_image.url}}">
                                                     <div class="slider-image-hover-text">
                                                         <div class="slider-image-hover-text-1">Tanzania</div>
                                                         <div class="slider-image-hover-text-2">Lorem ipsum dolor sit
@@ -508,102 +239,7 @@
                                                 </a>
                                             </div>
                                         </div>
-                                        <div class="child">
-                                            <div class="slider-image">
-                                                <a href="test.html">
-                                                    <img src="/static/web images/china.jpeg">
-                                                    <div class="slider-image-hover-text">
-                                                        <div class="slider-image-hover-text-1">China</div>
-                                                        <div class="slider-image-hover-text-2">Lorem ipsum dolor sit
-                                                            amet
-                                                            consectetur adipisicing elit.</div>
-                                                        <div class="slider-image-hover-text-3"> 65 Opportunities<i
-                                                                class="fa-solid fa-arrow-right"></i></div>
-                                                    </div>
-                                                    <div class="slider-img-text">China</div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="child">
-                                            <div class="slider-image">
-                                                <a href="test.html">
-                                                    <img src="/static/web images/nicargua.jpeg">
-                                                    <div class="slider-image-hover-text">
-                                                        <div class="slider-image-hover-text-1">Nicargua</div>
-                                                        <div class="slider-image-hover-text-2">Lorem ipsum dolor sit
-                                                            amet
-                                                            consectetur adipisicing elit.</div>
-                                                        <div class="slider-image-hover-text-3"> 65 Opportunities<i
-                                                                class="fa-solid fa-arrow-right"></i></div>
-                                                    </div>
-                                                    <div class="slider-img-text">Nicargua</div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="child">
-                                            <div class="slider-image">
-                                                <a href="test.html">
-                                                    <img src="/static/web images/italy.jpeg">
-                                                    <div class="slider-image-hover-text">
-                                                        <div class="slider-image-hover-text-1">Japan</div>
-                                                        <div class="slider-image-hover-text-2">Lorem ipsum dolor sit
-                                                            amet
-                                                            consectetur adipisicing elit.</div>
-                                                        <div class="slider-image-hover-text-3"> 65 Opportunities<i
-                                                                class="fa-solid fa-arrow-right"></i></div>
-                                                    </div>
-                                                    <div class="slider-img-text">Japan</div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="child">
-                                            <div class="slider-image">
-                                                <a href="test.html">
-                                                    <img src="/static/web images/maldives.jpeg">
-                                                    <div class="slider-image-hover-text">
-                                                        <div class="slider-image-hover-text-1">Maldives</div>
-                                                        <div class="slider-image-hover-text-2">Lorem ipsum dolor sit
-                                                            amet
-                                                            consectetur adipisicing elit.</div>
-                                                        <div class="slider-image-hover-text-3"> 65 Opportunities<i
-                                                                class="fa-solid fa-arrow-right"></i></div>
-                                                    </div>
-                                                    <div class="slider-img-text">Maldives</div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="child">
-                                            <div class="slider-image">
-                                                <a href="test.html">
-                                                    <img src="/static/web images/thailand.jpeg">
-                                                    <div class="slider-image-hover-text">
-                                                        <div class="slider-image-hover-text-1">Thailand</div>
-                                                        <div class="slider-image-hover-text-2">Lorem ipsum dolor sit
-                                                            amet
-                                                            consectetur adipisicing elit.</div>
-                                                        <div class="slider-image-hover-text-3"> 65 Opportunities<i
-                                                                class="fa-solid fa-arrow-right"></i></div>
-                                                    </div>
-                                                    <div class="slider-img-text">Thailand</div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="child">
-                                            <div class="slider-image">
-                                                <a href="test.html">
-                                                    <img src="/static/web images/peru.jpeg">
-                                                    <div class="slider-image-hover-text">
-                                                        <div class="slider-image-hover-text-1">Peru</div>
-                                                        <div class="slider-image-hover-text-2">Lorem ipsum dolor sit
-                                                            amet
-                                                            consectetur adipisicing elit.</div>
-                                                        <div class="slider-image-hover-text-3"> 65 Opportunities<i
-                                                                class="fa-solid fa-arrow-right"></i></div>
-                                                    </div>
-                                                    <div class="slider-img-text">Peru</div>
-                                                </a>
-                                            </div>
-                                        </div>
+                                        {% endfor %}
                                     </div>
                                     <div class="btn-child-2">
                                         <button class="icon" onclick="scrollr(3)">
@@ -616,33 +252,54 @@
                     </div>
                 </div>
             </div>
-            <div class="popular-channel">
-                <div class="channel-heading">
-                    <p>Popular Authors</p>
+         
+            <div class="horz">
+                <div class="fixed">
+                    <h1>Romantic</h1>
+                    <h2>Feel love</h2>
+                    <p>Romantic books, often falling under the genre of romance fiction, explore the complexities of love, relationships, and human connection..</p>
+                    <div class="fixed-last-text">
+                        <div class="fixed-icon"><i class="fas fa-arrow-right"></i> </div>explore all books
+                    </div>
                 </div>
-                <div class="channel-card-div">
-                    <div class="channel-card"></div>
-                    <div class="channel-card"></div>
-                    <div class="channel-card"></div>
-                    <div class="channel-card"></div>
-                    <div class="channel-card"></div>
-                    <div class="channel-card"></div>
+                <div class="horz-scroll">
+                    <div class="main">
+                        <div class="main-scroll-div">
+                            <div class="cover">
+                                <div class="btn-child-1">
+                                    <button class="icon" onclick="scrolll(4)">
+                                        <i class="fas fa-angle-left"> </i>
+                                    </button>
+                                </div>
+                                <div class="scroll-images" id="scroll-images-1">
+                                    {% for card in entry5 %}
+                                    <div class="child">
+                                        <div class="slider-image">
+                                            <a href="test.html">
+                                                <img src="{{card.card_image.url}}">
+                                                <div class="slider-image-hover-text">
+                                                    <div class="slider-image-hover-text-1">India</div>
+                                                    <div class="slider-image-hover-text-2">{{card.card_desc}}</div>
+                                                    <div class="slider-image-hover-text-3"> Read more<i
+                                                            class="fa-solid fa-arrow-right"></i></div>
+                                                </div>
+                                                <div class="slider-img-text">India</div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                
+                                </div>
+                                <div class="btn-child-2">
+                                    <button class="icon" onclick="scrollr(4)">
+                                        <i class="fas fa-angle-right"> </i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="popular-channel">
-                <div class="channel-heading">
-                    <p>Popular Articles</p>
-                </div>
-                <div class="channel-card-div">
-                    <div class="channel-card"></div>
-                    <div class="channel-card"></div>
-                    <div class="channel-card"></div>
-                    <div class="channel-card"></div>
-                    <div class="channel-card"></div>
-                    <div class="channel-card"></div>
-                </div>
-            </div>
-        
             
             <footer class="footer">
                 <div class="container">

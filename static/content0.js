@@ -58,6 +58,15 @@ lnchoosed.forEach((item, index) => {
         })
         lnchoosed[index].style.display = "none"
         const lntext = lnchoosed[index].innerText;
+        if (index == 0){
+            document.getElementById("english").style.display = "block";
+            document.getElementById("hindi").style.display = "none";
+        }
+        else if(index == 1){
+            document.getElementById("english").style.display = "none";
+            document.getElementById("hindi").style.display = "block";
+
+        }
         toChngln.innerText = lntext.substring(0, 2).toLowerCase();
     })
 })
@@ -239,13 +248,13 @@ const body = document.querySelector("body");
 const contentdesign = document.querySelectorAll(".content-design");
 const headpage = document.querySelectorAll(".head-page");
 const ldbtn = document.querySelector(".ldbtn");
-const contentleft = document.querySelector(".content-left");
+const contentleft = document.querySelectorAll(".content-left");
 const headingtextleft = document.querySelectorAll(".heading-text-left");
 const uls = document.querySelectorAll(".uls");
 const headingleft = document.querySelectorAll(".heading-left");
 const headingaccright= document.querySelectorAll(".heading-acc-right");
 const borderline= document.querySelectorAll(".border-line");
-const contentheading = document.querySelector(".content-heading");
+const contentheading = document.querySelectorAll(".content-heading");
 const footercol = document.querySelectorAll(".footer-col")
 const darkicon = document.querySelector(".darkicon");
 const darktext = document.querySelector(".darktext");
@@ -261,8 +270,12 @@ ldbtn.addEventListener("click", ()=>{
     }
     
     body.classList.toggle("light");
-    contentleft.classList.toggle("light");
-    contentheading.classList.toggle("light");
+    contentleft.forEach(item =>{
+        item.classList.toggle("light");
+    })
+    contentheading.forEach(item =>{
+        item.classList.toggle("light");
+    })
 
     contentdesign.forEach(item =>{
         item.classList.toggle("light");

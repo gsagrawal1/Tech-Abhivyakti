@@ -166,65 +166,63 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const videos = document.querySelectorAll('.video');
+    const descript = document.querySelectorAll('.innerdescribe-left');
+    const vcard = document.querySelectorAll('.videoscrollar-bar-child-content');
+    const clickvcard = document.querySelectorAll('.videoscrollar-bar-child');
+    const numVideos = videos.length;
+    let currentVideoIndex = 0; // Keep track of the currently active video
+   
+    clickvcard.forEach((clickvcard, index) => {
+        clickvcard.addEventListener('click', () => {
+            // Pause the currently playing video
+            videos[currentVideoIndex].pause();
+            
+            // Remove active classes from all elements
+            descript.forEach(item => item.classList.remove('showcontent'));
+            videos.forEach(item => item.classList.remove('activevideo'));
+            vcard.forEach(item => item.classList.remove('highlightborder'));
 
-const videos = document.querySelectorAll('.video');
-const descript = document.querySelectorAll('.innerdescribe-left')
-const vcard = document.querySelectorAll('.videoscrollar-bar-child-content')
-const clickvcard = document.querySelectorAll('.videoscrollar-bar-child')
-const numVideos = videos.length;
-const video_length = clickvcard.length;
-
-clickvcard.forEach((clickvcard, index) => {
-    clickvcard.addEventListener('click', () => {
-        for (let i = 0; i < video_length; i++) {
-            if (descript[i]) {
-                descript[i].classList.remove('showcontent');
-            }
-            if (videos[i]) {
-                videos[i].classList.remove('activevideo');
-            }
-            if (vcard[i]) {
-                vcard[i].classList.remove('highlightborder');
-            }
-        }
-        if (vcard[index]) {
+            // Set active classes to the clicked video and related elements
             vcard[index].classList.add('highlightborder');
-        }
-        if (descript[index]) {
             descript[index].classList.add('showcontent');
-        }
-        if (videos[index]) {
             videos[index].classList.add('activevideo');
-            videos[index].play()
-        }
-    });
-});
-
-videos.forEach((video, index) => {
-    video.addEventListener('ended', () => {
-        video.classList.remove('activevideo');
-        descript[index].classList.remove('showcontent');
-        vcard[index].classList.remove('highlightborder');
-
-        const nextIndex = (index + 1) % numVideos;
-
-        videos[nextIndex].classList.add('activevideo');
-        descript[nextIndex].classList.add('showcontent');
-        vcard[nextIndex].classList.add('highlightborder');
-        videos[nextIndex].play()
-
-
-        if (nextIndex === 0 && Array.from(videos).every(v => v.ended)) {
-            videos[0].play();
-        }
+            currentVideoIndex = index; // Update the current video index
+            videos[index].play(); // Play the clicked video
+        });
     });
 
-});
-if (videos[0]) {
+    videos.forEach((video, index) => {
+        video.addEventListener('ended', () => {
+            // Pause the currently ended video
+            video.pause();
+
+            // Remove active classes from all elements
+            descript.forEach(item => item.classList.remove('showcontent'));
+            videos.forEach(item => item.classList.remove('activevideo'));
+            vcard.forEach(item => item.classList.remove('highlightborder'));
+
+            // Calculate the next index
+            currentVideoIndex = (currentVideoIndex + 1) % numVideos;
+
+            // Set active classes to the next video and related elements
+            vcard[currentVideoIndex].classList.add('highlightborder');
+            descript[currentVideoIndex].classList.add('showcontent');
+            videos[currentVideoIndex].classList.add('activevideo');
+            videos[currentVideoIndex].play(); // Play the next video
+        });
+    });
+    try{
+    // Set initial active classes for the first video
     videos[0].classList.add('activevideo');
     descript[0].classList.add('showcontent');
     vcard[0].classList.add('highlightborder');
 }
+catch (error){
+console.log(error)
+}
+});
 
 window.addEventListener('scroll', function() {
     scrollFunction();
@@ -2218,8 +2216,9 @@ if(withtexttohandleback){
 withtexttohandleback.forEach((item , index) => {
         var back = window.getComputedStyle(item);
         withtexttohandleback[index].style.backgroundImage = takingvalueforbackground[index].value;
+        if(storytextcontent[index]){
         storytextcontent[index].style.fontFamily = takingvalueforstyle[index].value;
         storyinnercontent[index].style.backgroundImage = takingvalueforbackground[index].value;
-
+        }
 });
 }

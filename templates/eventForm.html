@@ -760,7 +760,12 @@
                                         <div class="card-event-invite">
                                             <div class="card-user">
                                                 <a href="">
-                                                    <img src="" alt="">
+                                                    {% for userdetail in Userdetail %}
+                            {% if userdetail.user == user %}
+                            <img src="{{ userdetail.Profileimage.url }}"
+                                alt="">
+                                {% endif %}
+                                {% endfor %}
                                                 </a>
                                                
                                             </div>

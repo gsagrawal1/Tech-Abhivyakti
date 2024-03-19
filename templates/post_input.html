@@ -13,7 +13,12 @@
             <div class="profile-details">
                 <div class="profile-left-icon">
                     <a href="{% url 'myprofile-lg' %}">
-                        <span><img src="/static/web images/IMG_20221223_175627.jpg" alt=""></span>
+                        <span> {% for userdetail in Userdetail %}
+                            {% if userdetail.user == user %}
+                            <img src="{{ userdetail.Profileimage.url }}"
+                                alt="">
+                                {% endif %}
+                                {% endfor %}</span>
                     </a>
                 </div>
                 <div class="profile-right-detail">
