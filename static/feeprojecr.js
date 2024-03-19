@@ -1913,32 +1913,32 @@ if (cardinput) {
                     content.classList.remove("showonhover");
                     content.classList.remove("showonremove");
                     toroticon[index].classList.add("eventcardiconrot");
-                    gsap.from(".caring-display", {
-                        duration: 0.6,
-                        x: 30,
-                        opacity: 0
-                    })
+                    // gsap.from(".caring-display", {
+                    //     duration: 0.6,
+                    //     x: 30,
+                    //     opacity: 0
+                    // })
 
-                    gsap.to(".caring-display", {
-                        duration: 0.6,
-                        opacity: 1,
-                        visibility: 'visible',
-                        x: 0
-                    })
+                    // gsap.to(".caring-display", {
+                    //     duration: 0.6,
+                    //     opacity: 1,
+                    //     visibility: 'visible',
+                    //     x: 0
+                    // })
 
-                    gsap.from(".registeredlabel", {
-                        duration: 0.6,
-                        x: 30
-                    })
+                    // gsap.from(".registeredlabel", {
+                    //     duration: 0.6,
+                    //     x: 30
+                    // })
 
 
-                    gsap.to(".registeredlabel", {
-                        duration: 0.6,
-                        opacity: 1,
-                        visibility: 'visible',
-                        x: 0
+                    // gsap.to(".registeredlabel", {
+                    //     duration: 0.6,
+                    //     opacity: 1,
+                    //     visibility: 'visible',
+                    //     x: 0
 
-                    })
+                    // })
 
                 })
             }

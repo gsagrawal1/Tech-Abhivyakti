@@ -7,10 +7,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bliss</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Marhey:wght@300..700&family=Pacifico&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Roboto|Open+Sans|Lato|Montserrat');
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        :root {
+            --purple: #5A618C;
+            --grey: #6D7E8C;
+            --darkgreen: #8EA65B;
+            --brightgreen: #C8F230;
+            --moderategreen: #B7D93D;
+            --midnightblue: #101720;
+            --deepnavyblue: #011222;
+            --charcolblack: #171717;
+            --richblack: #020D19;
+            --oilblack: #0c0c0c;
+            --darkslategrey: #0D1717;
+            --obsidian: #0B1215;
+            --primary: #44B78b;
+            --primary-accent: #93D7B7;
+            --secondary-accent: #44B78B;
+            --link-color: #93D7B7;
+            --body-fg: #C1CAD2;
+            --body-bg: #0e1117;
+            --logo-bg: #272c27;
+            --text-l10: #93D7B7;
+            --text-l20: #C9F0DD;
+            --onhover-bg: rgb(59 59 59 / 23%);
+            --fontfamilyRobo: "Roboto", Corbel, Avenir, "Lucida Grande", "Lucida Sans", sans-serif;
+
         }
 
         body {
@@ -29,7 +60,7 @@
             align-items: center;
             height: 100vh;
             z-index: 1;
-            background-color: rgba(146, 139, 139, 0.5);
+            background-color: var(--deepnavyblue);
         }
 
         .main {
@@ -39,7 +70,7 @@
             flex-direction: row;
             border-radius: 8px;
             z-index: 1;
-            box-shadow: 0 0 3px 3px rgb(0, 0, 0);
+            box-shadow: 0 2px 4px rgb(255, 255, 255, 0.4);
         }
 
         .inner-left {
@@ -50,105 +81,142 @@
             padding: 10px;
             display: flex;
             flex-direction: column;
+            position: relative;
         }
-        .marque{
+        .inner-left::after {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-color: #011222a1;
+        }
+
+
+        .marque {
             height: 33.33%;
             width: 100%;
             padding: 1.8% 0;
-            overflow: hidden; 
+            overflow: hidden;
             white-space: nowrap;
-            
+            z-index: 1;
+
         }
-        #marque1,#marque3{
+
+        #marque1,
+        #marque3 {
             background-color: rgba(128, 128, 128, 0.666);
             border-radius: 8px;
             display: flex;
             justify-content: left;
         }
-        .scrolling_image{
+
+        .scrolling_image {
             height: 172px;
             width: 140px;
             z-index: 2;
             border-radius: 8px;
             overflow: hidden;
-            
+
         }
-        #animatescroll_1,  #animatescroll_3{
+
+        #animatescroll_1,
+        #animatescroll_3 {
             height: 100%;
             width: max-content;
             animation: scrollimage_right 20s infinite;
             transition: margin-left ease;
-            
+
         }
-        #animatescroll_2{
+
+        #animatescroll_2 {
             height: 100%;
             width: max-content;
             animation: scrollimage_left 20s infinite;
             transition: margin-left ease;
-            
+
         }
-        @keyframes scrollimage_right{
-            0%{
+
+        @keyframes scrollimage_right {
+            0% {
                 margin-left: -190%;
             }
-            10%{
+
+            10% {
                 margin-left: -160%;
             }
-            20%{
+
+            20% {
                 margin-left: -130%;
             }
-            30%{
+
+            30% {
                 margin-left: -100%;
             }
-            40%{
+
+            40% {
                 margin-left: -70%;
             }
-            50%{
+
+            50% {
                 margin-left: -40%;
             }
-            60%{
+
+            60% {
                 margin-left: -10%;
             }
-            70%{
+
+            70% {
                 margin-left: 2%;
             }
-            100%{
+
+            100% {
                 margin-left: -190%;
             }
         }
-        @keyframes scrollimage_left{
-            0%{
+
+        @keyframes scrollimage_left {
+            0% {
                 margin-left: 0%;
             }
-            10%{
+
+            10% {
                 margin-left: -10%;
             }
-            20%{
+
+            20% {
                 margin-left: -40%;
             }
-            30%{
+
+            30% {
                 margin-left: -70%;
             }
-            40%{
+
+            40% {
                 margin-left: -100%;
             }
-            50%{
+
+            50% {
                 margin-left: -130%;
             }
-            60%{
+
+            60% {
                 margin-left: -160%;
             }
-            70%{
+
+            70% {
                 margin-left: -190%;
             }
-            100%{
+
+            100% {
                 margin-left: 0%;
             }
         }
 
 
         .inner-right {
-            background-color: rgba(16, 15, 15, 0.877);
+            background-color: var(--deepnavyblue);
             border-radius: 0 8px 8px 0;
             width: 40%;
             display: flex;
@@ -171,20 +239,36 @@
 
         .logo {
             height: 100%;
-            width: 60%;
+            width: 40%;
             padding: 4px;
             display: flex;
-            justify-content: center;
+            justify-content: right;
             align-items: center;
+        }
+        .logo img {
+            height: 60px;
+            width: 50px;
+            object-fit: fill;
         }
 
         .title {
             height: 100%;
-            width: 40%;
+            width: 60%;
             padding: 4px;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: left;
+            align-items: end;
+            font-size: 40px;
+            color: white;
+            font-family: "Marhey", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 700;
+            font-style: normal;
+        }
+        .title span{
+            height: max-content;
+            width: max-content; 
+            margin-bottom: -10px;
         }
 
         #faulty {
@@ -198,13 +282,14 @@
             font-family: "inter", sans-serif;
             font-weight: 400;
             text-transform: capitalize;
-            
+
         }
 
         #faulty span {
             width: max-content;
         }
-        #fullname-input-div{
+
+        #fullname-input-div {
             height: 50px;
             width: calc(100% - 60px);
             display: flex;
@@ -213,13 +298,15 @@
             background-color: #bdc2c3d6;
             border-radius: 8px;
         }
-        .profile-logo{
-          width: 10%;
+
+        .profile-logo {
+            width: 10%;
             height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
         }
+
         .fullname-input {
             width: 90%;
             height: 100%;
@@ -227,6 +314,7 @@
             align-items: center;
             justify-content: center;
         }
+
         #email-input-div {
             height: 50px;
             width: calc(100% - 60px);
@@ -286,6 +374,7 @@
             padding-left: 40px;
             text-transform: capitalize;
         }
+
         #password-input-div {
             height: 50px;
             width: calc(100% - 60px);
@@ -312,7 +401,9 @@
             align-items: center;
             justify-content: center;
         }
-        #password1-faulty , #password2-faulty{
+
+        #password1-faulty,
+        #password2-faulty {
             height: 20px;
             width: 100%;
             display: none;
@@ -325,6 +416,7 @@
             padding-left: 40px;
             text-transform: capitalize;
         }
+
         #login-btn-div {
             height: 80px;
             width: 100%;
@@ -349,6 +441,7 @@
             letter-spacing: 1px;
             transition: background-color 0.5s ease-in-out;
         }
+
         #submitButton:disabled {
             background-color: #849091bc;
         }
@@ -394,7 +487,8 @@
             font-family: "inter", sans-serif;
             font-size: 18px;
         }
-        #hide_show_icon{
+
+        #hide_show_icon {
             cursor: pointer;
         }
     </style>
@@ -408,26 +502,27 @@
         <div class="main">
             <div class="inner-left">
                 <div class="marque" id="marque1">
-                   
-                        <div class="animatescroll" id="animatescroll_1">
-                            {% for i in books_image %}
-                           <img src="{{ i.book_image.url }}" alt="Image" style="margin: 0 3px;" class="scrolling_image">
+
+                    <div class="animatescroll" id="animatescroll_1">
+                        {% for i in books_image %}
+                        <img src="{{ i.book_image.url }}" alt="Image" style="margin: 0 3px;" class="scrolling_image">
                         {% endfor %}
-                        </div>
-                    
+                    </div>
+
                 </div>
                 <div class="marque" id="marque2" id="animatescroll_2">
                     <div class="animatescroll">
                         {% for i in magazines_image %}
-                       <img src="{{ i.magazines_image.url }}" alt="Image" style="margin: 0 3px;" class="scrolling_image">
-                    {% endfor %}
+                        <img src="{{ i.magazines_image.url }}" alt="Image" style="margin: 0 3px;"
+                            class="scrolling_image">
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="marque" id="marque3">
                     <div class="animatescroll" id="animatescroll_3">
                         {% for i in books_image_2 %}
-                       <img src="{{ i.book_image_2.url }}" alt="Image" style="margin: 0 3px;" class="scrolling_image">
-                    {% endfor %}
+                        <img src="{{ i.book_image_2.url }}" alt="Image" style="margin: 0 3px;" class="scrolling_image">
+                        {% endfor %}
                     </div>
                 </div>
 
@@ -435,9 +530,9 @@
             <div class="inner-right">
                 <div class="inner-right-columns" id="lg-text">
                     <div class="logo">
-                        <img src="" alt="img" srcset="">
+                        <img src="/static/logo/android-chrome-192x192.png" alt="img" srcset="">
                     </div>
-                    <div class="title">Bliss</div>
+                    <div class="title"><span>liss</span></div>
                 </div>
                 {% if show %}
                 <div class="inner-right-columns" id="faulty"><span>User already existed*</span></div>
@@ -445,14 +540,14 @@
                 <form id="LoginForm" method="POST">
                     {% csrf_token %}
                     <div class="inner-right-columns" id="fullname-input-div">
-                      <div class="profile-logo">
-                          <span class="material-symbols-outlined">
-                              person
-                          </span>
-                      </div>
-                      <div class="fullname-input"> {{ form2.FullName }}</div>
+                        <div class="profile-logo">
+                            <span class="material-symbols-outlined">
+                                person
+                            </span>
+                        </div>
+                        <div class="fullname-input"> {{ form2.FullName }}</div>
 
-                  </div>
+                    </div>
                     <div class="inner-right-columns" id="email-input-div">
                         <div class="email-logo">
                             <span class="material-symbols-outlined">
@@ -473,29 +568,32 @@
                         <div class="password-input">
                             {{ form2.PassWord1 }}
                         </div>
-                        <div class="email-logo" >
-                            <span class="material-symbols-outlined hide_show_icon" onclick="show_hide()" id="hide_show_icon">
+                        <div class="email-logo">
+                            <span class="material-symbols-outlined hide_show_icon" onclick="show_hide()"
+                                id="hide_show_icon">
                                 visibility_off
                             </span>
                         </div>
                     </div>
-                    <div class="inner-right-columns" ><span id="password1-faulty">Minimum 8 Character Required*</span></div>
+                    <div class="inner-right-columns"><span id="password1-faulty">Minimum 8 Character Required*</span>
+                    </div>
                     <div class="inner-right-columns" id="password-input-div">
-                      <div class="password-logo">
-                          <span class="material-symbols-outlined">
-                              password
-                          </span>
-                      </div>
-                      <div class="password-input">
-                          {{ form2.PassWord2 }}
-                      </div>
-                      <div class="email-logo" >
-                          <span class="material-symbols-outlined hide_show_icon" onclick="show_hide()" id="hide_show_icon">
-                              visibility_off
-                          </span>
-                      </div>
-                  </div>
-                  <div class="inner-right-columns" ><span id="password2-faulty">Password not matched*</span></div>
+                        <div class="password-logo">
+                            <span class="material-symbols-outlined">
+                                password
+                            </span>
+                        </div>
+                        <div class="password-input">
+                            {{ form2.PassWord2 }}
+                        </div>
+                        <div class="email-logo">
+                            <span class="material-symbols-outlined hide_show_icon" onclick="show_hide()"
+                                id="hide_show_icon">
+                                visibility_off
+                            </span>
+                        </div>
+                    </div>
+                    <div class="inner-right-columns"><span id="password2-faulty">Password not matched*</span></div>
 
                     <div class="inner-right-columns" id="login-btn-div">
                         <button id="submitButton">Sign Up</button>
@@ -560,7 +658,7 @@
             const field2Value = field2.value.trim();
             const field3Value = field3.value.trim();
 
-            if (regex.test(field1Value) && field2Value.length >= 8 && field2Value == field3Value && name_value.length>0) {
+            if (regex.test(field1Value) && field2Value.length >= 8 && field2Value == field3Value && name_value.length > 0) {
                 return field1Value && field2Value;
 
             }
@@ -583,20 +681,20 @@
         updateSubmitButton();
     });
     function show_hide() {
-    var passwordInput = document.getElementsByClassName("password");
-    var toggleButton = document.getElementsByClassName("hide_show_icon");
+        var passwordInput = document.getElementsByClassName("password");
+        var toggleButton = document.getElementsByClassName("hide_show_icon");
 
-    for(var i =0 ; i<passwordInput.length ; i++){
-      if (passwordInput[i].type === "password") {
-        passwordInput[i].type = "text";
-        toggleButton[i].innerText = "visibility";
-    } else {
-        passwordInput[i].type = "password";
-        toggleButton[i].innerText = "visibility_off";
+        for (var i = 0; i < passwordInput.length; i++) {
+            if (passwordInput[i].type === "password") {
+                passwordInput[i].type = "text";
+                toggleButton[i].innerText = "visibility";
+            } else {
+                passwordInput[i].type = "password";
+                toggleButton[i].innerText = "visibility_off";
 
+            }
+        }
     }
-    }
-}
 
 </script>
 
