@@ -1,17 +1,5 @@
 {
   "rewrites": [
-    { "source": "/admin/(.*)", "destination": "/admin/$1" },
-    { "source": "/register/(.*)", "destination": "/register/$1" },
-    { "source": "/logout/(.*)", "destination": "/logout/$1" },
-    { "source": "/home/(.*)", "destination": "/home/$1" },
-    { "source": "/myprofile-lg/(.*)", "destination": "/myprofile-lg/$1" },
-    { "source": "/search/(.*)", "destination": "/search/$1" },
-    { "source": "/blogs/(.*)", "destination": "/blogs/$1" },
-    { "source": "/news/(.*)", "destination": "/news/$1" },
-    { "source": "/sports/(.*)", "destination": "/sports/$1" },
-    { "source": "/content/(.*)", "destination": "/content/$1" },
-    { "source": "/content0/(.*)", "destination": "/content0/$1" },
-    { "source": "/events/(.*)", "destination": "/events/$1" },
     { "source": "/(.*)", "destination": "/" }
   ]
 }
