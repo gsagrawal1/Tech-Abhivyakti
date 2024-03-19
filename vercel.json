@@ -13,6 +13,6 @@
     { "src": "/content/(.*)", "dest": "content/$1" },
     { "src": "/content0/(.*)", "dest": "content0/$1" },
     { "src": "/events/(.*)", "dest": "events/$1" },
-    { "src": "/(.*)", "dest": "login/$1" }
+    { "src": "/(.*)", "dest": "index.html" }
   ]
 }
