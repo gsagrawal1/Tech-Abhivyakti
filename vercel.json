@@ -1,5 +1,9 @@
 {
   "rewrites": [
     { "source": "/(.*)", "destination": "" }
-  ]
+  ],
+  "scripts": {
+    "build": "vite build",
+    "preview": "vite preview"
+  }
 }
