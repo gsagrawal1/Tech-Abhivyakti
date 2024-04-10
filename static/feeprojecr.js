@@ -31,10 +31,10 @@ function hideleftbar() {
 
 function search() {
     const tomatch = document.querySelectorAll(".searchcards");
-    tomatch.forEach(item =>{
+    tomatch.forEach(item => {
         var value = item.getAttribute("data-value");
         var filter = document.getElementById("search-input").value.toUpperCase();
-        
+
         if (value.trim().toUpperCase().indexOf(filter) > -1) {
             item.style.display = "block";
         }
@@ -43,7 +43,7 @@ function search() {
 
         }
     })
-    
+
 }
 function shhi() {
     var lop = document.getElementById("search-input").value;
@@ -124,13 +124,13 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
     const cards = document.querySelectorAll('.card-type-2');
     const container = document.querySelector('.popular-cards');
-  
+
 
     cards.forEach(card => {
         card.addEventListener('mouseenter', function () {
             const cardRect = this.getBoundingClientRect();
             const computedStyle = window.getComputedStyle(container);
-            if(computedStyle.getPropertyValue('display') === 'grid'){
+            if (computedStyle.getPropertyValue('display') === 'grid') {
                 const cardPosition = cardRect.left - container.getBoundingClientRect().left;
                 if (cardPosition <= 10) {
                     this.style.transformOrigin = 'left';
@@ -146,13 +146,13 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
     const searchcards = document.querySelectorAll(".searchcards");
     const onsearchdiv = document.querySelector(".onsearchdiv");
-  
+
 
     searchcards.forEach(card => {
         card.addEventListener('mouseenter', function () {
             const cardRect = this.getBoundingClientRect();
             const computedStyle = window.getComputedStyle(onsearchdiv);
-            if(computedStyle.getPropertyValue('display') === 'grid'){
+            if (computedStyle.getPropertyValue('display') === 'grid') {
                 const cardPosition = cardRect.left - onsearchdiv.getBoundingClientRect().left;
                 if (cardPosition <= 20) {
                     this.style.transformOrigin = 'left';
@@ -173,12 +173,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const clickvcard = document.querySelectorAll('.videoscrollar-bar-child');
     const numVideos = videos.length;
     let currentVideoIndex = 0; // Keep track of the currently active video
-   
+
     clickvcard.forEach((clickvcard, index) => {
         clickvcard.addEventListener('click', () => {
             // Pause the currently playing video
             videos[currentVideoIndex].pause();
-            
+
             // Remove active classes from all elements
             descript.forEach(item => item.classList.remove('showcontent'));
             videos.forEach(item => item.classList.remove('activevideo'));
@@ -213,29 +213,29 @@ document.addEventListener("DOMContentLoaded", () => {
             videos[currentVideoIndex].play(); // Play the next video
         });
     });
-    try{
-    // Set initial active classes for the first video
-    videos[0].classList.add('activevideo');
-    descript[0].classList.add('showcontent');
-    vcard[0].classList.add('highlightborder');
-}
-catch (error){
-console.log(error)
-}
+    try {
+        // Set initial active classes for the first video
+        videos[0].classList.add('activevideo');
+        descript[0].classList.add('showcontent');
+        vcard[0].classList.add('highlightborder');
+    }
+    catch (error) {
+        console.log(error)
+    }
 });
 
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     scrollFunction();
 });
 
 function scrollFunction() {
     const videoback = document.querySelector(".videoback");
-    if(videoback){
+    if (videoback) {
         var scrollTopValue = window.scrollY || document.documentElement.scrollTop;
 
         if (scrollTopValue <= 7815) {
             var calc = scrollTopValue * 0.001 + 0.1;
-    
+
             var gradientString = "linear-gradient(45deg, " +
                 "rgba(2,13,25," + minof(1, calc + 0.98) + ") 0%, " +
                 "rgba(2,13,25," + minof(1, calc + 0.98) + ") 5%, " +
@@ -259,11 +259,11 @@ function scrollFunction() {
                 "rgba(2,13,25," + minof(1, calc + 0.1) + ") 95%, " +
                 "rgba(2,13,25," + minof(1, calc + 0.05) + ") 100%, " +
                 "rgba(2,13,25," + minof(1, calc) + ") 100%)";
-    
+
             videoback.style.background = gradientString;
         }
     }
-  
+
 }
 
 function minof(a, b) {
@@ -445,7 +445,7 @@ feed_opt.forEach((item, index) => {
             feed_opt_change[index].classList.add("ifbelow");
             feed_opt_after_des[index].classList.add("ifbelow");
         }
-        else{
+        else {
             feed_opt_change[index].classList.remove("ifbelow");
             feed_opt_after_des[index].classList.remove("ifbelow");
 
@@ -770,6 +770,7 @@ if (eventForm) {
             }
             selectdefault.innerText = lilarray[index].innerText;
             inputcategory.value = lilarray[index].innerText;
+            console.log(inputcategory.value)
             eventcategory.innerText = "( " + inputcategory.value + " )";
             Catlist.style.display = "none";
         })
@@ -908,7 +909,15 @@ if (eventForm) {
     const inserttimeth = document.querySelector(".inserttimeth");
     const inserttimetm = document.querySelector(".inserttimetm");
     const tampm = document.querySelector(".tampm");
-
+    const Year = document.querySelector("#year");
+    const Month = document.querySelector("#month");
+    const Day = document.querySelector("#day");
+    const fromhour = document.querySelector("#fromhour");
+    const tohour = document.querySelector("#tohour");
+    const fromampm = document.querySelector("#fromampm");
+    const fromminutes = document.querySelector("#fromminutes");
+    const tominutes = document.querySelector("#tominutes");
+    const toampm = document.querySelector("#toampm");
 
 
     tdpickedcontent.forEach(content => {
@@ -939,9 +948,6 @@ if (eventForm) {
         }
 
     })
-
-
-
 
     dttrigger.addEventListener("click", () => {
         dtonclick.classList.toggle("activedtpick");
@@ -974,15 +980,20 @@ if (eventForm) {
                     content.classList.add("pickedtd");
                     if (isScrolling(item)) {
                         if (content.innerText.trim().length == 3) {
-
                             monthspan.innerText = content.innerText;
+                            Month.value = content.innerText;
+                            console.log(Month.value)
                         }
                         else if (content.innerText.trim().length <= 2) {
                             dayspan.innerText = content.innerText;
-
+                            Day.value = content.innerText;
+                            console.log(Day.value)
                         }
                         else if (content.innerText.trim().length == 4) {
                             yearspan.innerText = content.innerText;
+                            Year.value = content.innerText;
+                            console.log(Year.value)
+
                         }
                     }
                     insertdate.textContent = monthspan.textContent + " " + dayspan.textContent + "," + " " + yearspan.textContent;
@@ -1011,24 +1022,42 @@ if (eventForm) {
 
                     if (parseInt(content.innerText) > 12) {
                         fampm.textContent = "PM";
+                        fromampm.value = "PM";
+
                         if (parseInt(content.innerText) < 22) {
                             inserttimefh.textContent = "0" + (parseInt(content.innerText) - 12);
+                            fromhour.value = inserttimefh.textContent;
+
                         }
                         else {
                             inserttimefh.textContent = (parseInt(content.innerText) - 12);
+                            fromhour.value = inserttimefh.textContent;
+
                         }
                     }
                     else if (parseInt(content.innerText) == 0) {
                         fampm.textContent = "AM";
+                        fromampm.value = "AM";
+
                         inserttimefh.textContent = 12;
+                        fromhour.value = inserttimefh.textContent;
+
+
                     }
                     else if (parseInt(content.innerText) == 12) {
                         fampm.textContent = "PM";
+                        fromampm.value = "PM";
+
                         inserttimefh.textContent = 12;
+                        fromhour.value = inserttimefh.textContent;
+
                     }
                     else {
                         inserttimefh.textContent = content.innerText;
                         fampm.textContent = "AM";
+                        fromampm.value = "AM";
+                        fromhour.value = inserttimefh.textContent;
+
                     }
                 }
 
@@ -1044,6 +1073,7 @@ if (eventForm) {
                     content.classList.add("pickedtd");
                     fminflash.innerText = content.innerText;
                     inserttimefm.textContent = content.innerText;
+                    fromminutes.value = content.innerText;
 
                 }
 
@@ -1067,24 +1097,39 @@ if (eventForm) {
                     thourflash.innerText = content.innerText;
                     if (parseInt(content.innerText) > 12) {
                         tampm.textContent = "PM";
+                        toampm.value = "PM";
                         if (parseInt(content.innerText) < 22) {
                             inserttimeth.textContent = "0" + (parseInt(content.innerText) - 12);
+                            tohour.value = inserttimeth.textContent;
                         }
                         else {
                             inserttimeth.textContent = (parseInt(content.innerText) - 12);
+                            tohour.value = inserttimeth.textContent;
+
                         }
                     }
                     else if (parseInt(content.innerText) == 0) {
                         tampm.textContent = "AM";
+                        toampm.value = "AM";
+
                         inserttimeth.textContent = 12;
+                        tohour.value = inserttimeth.textContent;
+
                     }
                     else if (parseInt(content.innerText) == 12) {
                         tampm.textContent = "PM";
+                        toampm.value = "PM";
+
                         inserttimeth.textContent = 12;
+                        tohour.value = inserttimeth.textContent;
+
                     }
                     else {
                         inserttimeth.textContent = content.innerText;
+                        tohour.value = inserttimeth.textContent;
                         tampm.textContent = "AM";
+                        toampm.value = "AM";
+
                     }
                 }
 
@@ -1100,6 +1145,7 @@ if (eventForm) {
                     content.classList.add("pickedtd");
                     tminflash.innerText = content.innerText;
                     inserttimetm.textContent = content.innerText;
+                    tominutes.value = content.innerText;
 
                 }
 
@@ -1125,6 +1171,8 @@ if (eventForm) {
     const insertbasisspan = document.querySelector(".insertbasisspan");
     const insertmax = document.querySelector(".insertmax");
     const inserttill = document.querySelector(".inserttill");
+    const insertbasisvalue = document.querySelector("#insertbasisvalue")
+    const agerestriction = document.querySelector("#agerestriction");
 
     onlyonceicon.addEventListener("click", () => {
         onlyoncediv.classList.add("choosedOpt");
@@ -1304,6 +1352,8 @@ if (eventForm) {
     for (let i = 0; i < basisselectli.length; i++) {
         basisselectli[i].addEventListener("click", (event) => {
             displaybasis.innerText = event.target.innerText;
+            insertbasisvalue.value = event.target.innerText;
+            console.log(insertbasisvalue.value)
             basisinputselection.classList.remove("openbasisselection");
             if (displaybasis.innerText.trim() == "Daily") {
                 insertbasisspan.textContent = "day";
@@ -1323,10 +1373,16 @@ if (eventForm) {
             }
         });
     }
+    const tillmonth = document.querySelector("#tillmonth")
+    const tillday = document.querySelector("#tillday")
+    const tillyear = document.querySelector("#tillyear")
     occurence.addEventListener("keyup", () => {
         if (insertbasisspan.textContent.trim() == "day") {
             var tobeaddedindate = Math.floor(occurence.value / times.value) * 1;
             inserttill.textContent = currentMonthAbbreviation + " " + (currentDay + tobeaddedindate) + "," + " " + currentYear;
+            tillmonth.value = currentMonthAbbreviation
+            tillday.value = currentDay + tobeaddedindate
+            tillyear.value = currentYear
         }
         else if (insertbasisspan.textContent.trim() == "week") {
             var tobeaddedindate = Math.floor(occurence.value / times.value) * 7;
@@ -1334,21 +1390,32 @@ if (eventForm) {
             if (condition > 30) {
                 var addup = Math.floor(tobeaddedindate / 30) + 1;
                 inserttill.textContent = monthNames[currentMonthIndex + addup] + " " + (currentDay + tobeaddedindate - 30) + "," + " " + currentYear;
+                tillmonth.value = monthNames[currentMonthIndex + addup]
+                tillday.value = currentDay + tobeaddedindate - 30
+                tillyear.value = currentYear
             }
             else {
                 inserttill.textContent = currentMonthAbbreviation + " " + (currentDay + tobeaddedindate) + "," + " " + currentYear;
+                tillmonth.value = currentMonthAbbreviation
+                tillday.value = (currentDay + tobeaddedindate)
+                tillyear.value = currentYear
             }
         }
         else if (insertbasisspan.textContent.trim() == "month") {
-            console.log("here")
-
             var tobeaddedindate = Math.round(occurence.value / times.value) * 1;
             inserttill.textContent = monthNames[currentMonthIndex + tobeaddedindate] + " " + (currentDay) + "," + " " + currentYear;
+            tillmonth.value = monthNames[currentMonthIndex + tobeaddedindate]
+            tillday.value = currentDay
+            tillyear.value = currentYear
 
         }
         else if (insertbasisspan.textContent.trim() == "year") {
             var tobeaddedindate = Math.floor(occurence.value / times.value) * 1;
             inserttill.textContent = currentMonthAbbreviation + " " + currentDay + "," + " " + (currentYear + tobeaddedindate);
+            tillmonth.value = currentMonthAbbreviation
+            tillday.value = currentDay
+            tillyear.value = currentYear + tobeaddedindate
+
 
         }
         else {
@@ -1358,6 +1425,9 @@ if (eventForm) {
                 var tobeaddinyear = Math.floor(multi / 12);
                 var tobeaddinmonth = Math.round(multi % 12);
                 inserttill.textContent = monthNames[currentMonthIndex + tobeaddinmonth] + " " + currentDay + "," + " " + (currentYear + tobeaddinyear);
+                tillmonth.value = monthNames[currentMonthIndex + tobeaddinmonth]
+                tillday.value = currentDay
+                tillyear.value = (currentYear + tobeaddinyear)
 
             }
         }
@@ -1613,20 +1683,9 @@ if (eventForm) {
         previewcardlabel.style.display = "flex";
         console.log(previewimgfield.files.length)
     })
-
-
-
-    const Year = document.querySelector("#year");
-    const Month = document.querySelector("#month");
-    const Day = document.querySelector("#day");
-    const fromhourspan = document.querySelector(".fromhour-span").innerText;
-    const fromminutesspan = document.querySelector(".fromminutes-span").innerText;
-    const tohourspan = document.querySelector(".tohour-span").innerText;
-    const tominutesspan = document.querySelector(".tominutes-span").innerText;
-    const fromhour = document.querySelector("#fromhour");
-    const tohour = document.querySelector("#tohour");
-    const fromminutes = document.querySelector("#fromminutes");
-    const tominutes = document.querySelector("#tominutes");
+    document.getElementById("Formevent").onsubmit = function () {
+        agerestriction.value = document.querySelector('input[name="option"]:checked').value;
+    };
 
 }
 
@@ -1870,7 +1929,7 @@ if (storyform) {
                 colorchoose[i].classList.remove("choosedcolour");
             }
             item.classList.add("choosedcolour");
-            if (index == 1 || index == 2 || index==4|| index ==5|| index == 8) {
+            if (index == 1 || index == 2 || index == 4 || index == 5 || index == 8) {
                 storytext.style.color = "var(--richblack)";
             }
             else {
@@ -1878,92 +1937,23 @@ if (storyform) {
             }
             var styles = window.getComputedStyle(item);
             var backgroundImage = styles.getPropertyValue("background-image");
-            actualpreviewedit.style.backgroundImage = backgroundImage;     
+            actualpreviewedit.style.backgroundImage = backgroundImage;
             storybackground.value = backgroundImage;
         })
     })
     const closestoryform = document.querySelector(".closestoryform");
+
     const userstorypost = document.querySelector(".user-story-post");
-    userstorypost.addEventListener("click", () => {
-        storyform.style.display = "block";
-    })
-    closestoryform.addEventListener("click", () => {
-        storyform.style.display = "none";
-    })
+    if (userstorypost) {
+        userstorypost.addEventListener("click", () => {
+            storyform.style.display = "block";
+        })
+        closestoryform.addEventListener("click", () => {
+            storyform.style.display = "none";
+        })
+    }
 }
 
-const eventicon = document.querySelectorAll(".eventicon");
-const cardinput = document.querySelectorAll(".eri");
-const card = document.querySelectorAll(".card");
-const onhovercardevent = document.querySelectorAll(".onhover-card-event");
-const toroticon = document.querySelectorAll(".toroticon");
-const clsdetails = document.querySelectorAll(".clsdetails");
-if (cardinput) {
-
-
-    card.forEach((item, index) => {
-        item.addEventListener("click", () => {
-            toroticon.forEach(item => {
-                item.classList.remove("eventcardiconrot");
-            })
-            if (!(cardinput[index].checked)) {
-                onhovercardevent.forEach(content => {
-                    content.classList.remove("showonhover");
-                    content.classList.remove("showonremove");
-                    toroticon[index].classList.add("eventcardiconrot");
-                    // gsap.from(".caring-display", {
-                    //     duration: 0.6,
-                    //     x: 30,
-                    //     opacity: 0
-                    // })
-
-                    // gsap.to(".caring-display", {
-                    //     duration: 0.6,
-                    //     opacity: 1,
-                    //     visibility: 'visible',
-                    //     x: 0
-                    // })
-
-                    // gsap.from(".registeredlabel", {
-                    //     duration: 0.6,
-                    //     x: 30
-                    // })
-
-
-                    // gsap.to(".registeredlabel", {
-                    //     duration: 0.6,
-                    //     opacity: 1,
-                    //     visibility: 'visible',
-                    //     x: 0
-
-                    // })
-
-                })
-            }
-
-        })
-    })
-
-    eventicon.forEach((item, index) => {
-        item.addEventListener("click", () => {
-            onhovercardevent.forEach(content => {
-                content.classList.remove("showonhover");
-                content.classList.remove("showonremove");
-                toroticon[index].classList.remove("eventcardiconrot");
-            })
-            if (cardinput[index].checked) {
-                toroticon[index].classList.add("eventcardiconrot");
-                onhovercardevent[index].classList.add("showonhover");
-            }
-        })
-    })
-    clsdetails.forEach((item, index) => {
-        item.addEventListener("click", () => {
-            onhovercardevent[index].classList.remove("showonhover");
-            onhovercardevent[index].classList.add("showonremove");
-        })
-    })
-}
 const regularstory = document.querySelectorAll(".regular-story");
 const emojiplay = document.querySelectorAll(".emojiplay");
 if (emojiplay || regularstory) {
@@ -2025,23 +2015,23 @@ if (emojiplay || regularstory) {
                     vstorybtnright.style.display = "none";
                 }
             });
-            if(document.getElementsByClassName("viewstory").style == "flex"){
-            if (contentContainer.scrollLeft > 0) {
+            if (document.getElementsByClassName("viewstory").style == "flex") {
+                if (contentContainer.scrollLeft > 0) {
 
-                vstorybtnleft.style.display = "flex";
-            } else {
-        
-                vstorybtnleft.style.display = "none";
+                    vstorybtnleft.style.display = "flex";
+                } else {
+
+                    vstorybtnleft.style.display = "none";
+                }
+
+                if (contentContainer.scrollWidth > contentContainer.clientWidth) {
+                    vstorybtnright.style.display = "flex";
+                } else {
+                    vstorybtnright.style.display = "none";
+                }
             }
-        
-            if (contentContainer.scrollWidth > contentContainer.clientWidth) {
-                vstorybtnright.style.display = "flex";
-            } else {
-                vstorybtnright.style.display = "none";
-            }
-        }
         });
-       
+
     }
     if (regularstory) {
         regularstory.forEach((item, index) => {
@@ -2084,58 +2074,58 @@ const scrollbtnright = document.querySelector(".mainvid-right-btn");
 console.log(scrollbtnleft)
 console.log(scrollbtnright)
 
-if(scrollButtons1){
+if (scrollButtons1) {
 
 
-scrollButtons1.forEach(function (scrollButton) {
-    var contentContainer = scrollButton.parentElement.querySelector(".videoscrollar-bar-child");
+    scrollButtons1.forEach(function (scrollButton) {
+        var contentContainer = scrollButton.parentElement.querySelector(".videoscrollar-bar-child");
 
-    contentContainer.addEventListener("scroll", function () {
-        // Check if there is scrollable content exceeding the container's width on the left side
+        contentContainer.addEventListener("scroll", function () {
+            // Check if there is scrollable content exceeding the container's width on the left side
+            if (contentContainer.scrollLeft > 0) {
+                // If there is, show the left button
+                scrollbtnleft.classList.add("mainvideobtn");
+            } else {
+                // If not, hide the left button
+                console.log("applying")
+                scrollbtnleft.classList.remove("mainvideobtn");
+            }
+
+            // Check if there is scrollable content exceeding the container's width on the right side
+            if (contentContainer.scrollWidth > contentContainer.clientWidth + contentContainer.scrollLeft) {
+                // If there is, show the right button
+                scrollbtnright.classList.add("mainvideobtn");
+            } else {
+                // If not, hide the right button
+                scrollbtnright.classList.remove("mainvideobtn");
+            }
+        });
+
+        // Initially check if there is scrollable content on page load
         if (contentContainer.scrollLeft > 0) {
-            // If there is, show the left button
+
             scrollbtnleft.classList.add("mainvideobtn");
         } else {
-            // If not, hide the left button
-            console.log("applying")
+
             scrollbtnleft.classList.remove("mainvideobtn");
         }
 
-        // Check if there is scrollable content exceeding the container's width on the right side
-        if (contentContainer.scrollWidth > contentContainer.clientWidth + contentContainer.scrollLeft) {
-            // If there is, show the right button
+        if (contentContainer.scrollWidth > contentContainer.clientWidth) {
             scrollbtnright.classList.add("mainvideobtn");
         } else {
-            // If not, hide the right button
             scrollbtnright.classList.remove("mainvideobtn");
         }
     });
-
-    // Initially check if there is scrollable content on page load
-    if (contentContainer.scrollLeft > 0) {
-
-        scrollbtnleft.classList.add("mainvideobtn");
-    } else {
-
-        scrollbtnleft.classList.remove("mainvideobtn");
-    }
-
-    if (contentContainer.scrollWidth > contentContainer.clientWidth) {
-        scrollbtnright.classList.add("mainvideobtn");
-    } else {
-        scrollbtnright.classList.remove("mainvideobtn");
-    }
-});
 }
 
 const postcontent = document.querySelectorAll(".postcontent");
-if(postcontent){
-    postcontent.forEach(item =>{
+if (postcontent) {
+    postcontent.forEach(item => {
         var len = item.textContent.trim().length;
-        if(len<=300){
+        if (len <= 300) {
             item.style.fontSize = "18px";
         }
-        else{
+        else {
             item.style.fontSize = "16px";
         }
     })
@@ -2143,82 +2133,508 @@ if(postcontent){
 
 const regularstoryfor = document.querySelectorAll(".regular-story");
 const userstoryscrollchild = document.querySelectorAll(".userstoryscrollchild");
-if(regularstory){
-regularstory.forEach((item, index) =>{
-    item.addEventListener("click",()=>{
-        for(var i =0; i<regularstory.length ; i++){
-            userstoryscrollchild[i].style.display= "none";
-        }
-        for(var i = index ; i<regularstory.length; i++){
-            userstoryscrollchild[i].style.display= "block";
-        }
-    })
-    const vstorybtnleft = document.querySelector(".vleft");
-    const vstorybtnright = document.querySelector(".vright");
-    var contentContainer = document.querySelector(".userstoryscroll");
-    item.addEventListener("click", function () {
-        // Check if there is scrollable content exceeding the container's width on the left side
-        if (contentContainer.scrollLeft > 0) {
-            // If there is, show the left button
-            vstorybtnleft.style.display = "flex";
-        } else {
-            // If not, hide the left button
-            vstorybtnleft.style.display = "none";
-        }
+if (regularstory) {
+    regularstory.forEach((item, index) => {
+        item.addEventListener("click", () => {
+            for (var i = 0; i < regularstory.length; i++) {
+                userstoryscrollchild[i].style.display = "none";
+            }
+            for (var i = index; i < regularstory.length; i++) {
+                userstoryscrollchild[i].style.display = "block";
+            }
+        })
+        const vstorybtnleft = document.querySelector(".vleft");
+        const vstorybtnright = document.querySelector(".vright");
+        var contentContainer = document.querySelector(".userstoryscroll");
+        item.addEventListener("click", function () {
+            // Check if there is scrollable content exceeding the container's width on the left side
+            if (contentContainer.scrollLeft > 0) {
+                // If there is, show the left button
+                vstorybtnleft.style.display = "flex";
+            } else {
+                // If not, hide the left button
+                vstorybtnleft.style.display = "none";
+            }
 
-        // Check if there is scrollable content exceeding the container's width on the right side
-        if (contentContainer.scrollWidth > contentContainer.clientWidth + contentContainer.scrollLeft) {
-            // If there is, show the right button
-            vstorybtnright.style.display = "flex";
-        } else {
-            // If not, hide the right button
-            vstorybtnright.style.display = "none";
-        }
-    });
-})
+            // Check if there is scrollable content exceeding the container's width on the right side
+            if (contentContainer.scrollWidth > contentContainer.clientWidth + contentContainer.scrollLeft) {
+                // If there is, show the right button
+                vstorybtnright.style.display = "flex";
+            } else {
+                // If not, hide the right button
+                vstorybtnright.style.display = "none";
+            }
+        });
+    })
 }
 
-const checkclickfile =  document.querySelector("#storyimginputlabel");
+const checkclickfile = document.querySelector("#storyimginputlabel");
 const checkclicktext = document.querySelector(".textwith");
 const validatebtntoggle = document.querySelector("#storysubmitbtn");
 const storytext = document.querySelector("#storytext");
 const storyfile = document.querySelector("#storyfile");
 const storyimginput = document.querySelector("#storyimginput");
 var checkclick = false;
-if(checkclickfile){
-checkclickfile.addEventListener("click", ()=>{
-   checkclick = true;
+if (checkclickfile) {
+    checkclickfile.addEventListener("click", () => {
+        checkclick = true;
 
-})
-checkclicktext.addEventListener("click", ()=>{
-   checkclick = false;
+    })
+    checkclicktext.addEventListener("click", () => {
+        checkclick = false;
 
-})
-validatebtntoggle.addEventListener("click", ()=>{
-    if(checkclick){
-         storyfile.submit();
+    })
+    validatebtntoggle.addEventListener("click", () => {
+        if (checkclick) {
+            storyfile.submit();
+        }
+        else {
+            storytext.submit();
+
+
+        }
+    })
+}
+
+try {
+    const withtexttohandleback = document.querySelectorAll(".withtext");
+    const takingvalueforbackground = document.querySelectorAll("#takingvalueforbackground");
+    const storytextcontent = document.querySelectorAll(".storytextcontent");
+    const takingvalueforstyle = document.querySelectorAll("#takingvalueforstyle");
+    const storyinnercontent = document.querySelectorAll(".story-inner-content");
+    if (withtexttohandleback) {
+        withtexttohandleback.forEach((item, index) => {
+            var back = window.getComputedStyle(item);
+            withtexttohandleback[index].style.backgroundImage = takingvalueforbackground[index].value;
+            if (storytextcontent[index]) {
+                storytextcontent[index].style.fontFamily = takingvalueforstyle[index].value;
+
+
+
+                storyinnercontent[index].style.backgroundImage = takingvalueforbackground[index].value;
+
+
+            }
+        });
     }
-    else{
-        storytext.submit();
-    
+}
+catch (error) {
+    console.log(error)
+}
 
-    }
+const clsdetails = document.querySelectorAll(".clsdetails");
+const onhovercard = document.querySelectorAll(".onhover-card");
+const eventdetailsicon = document.querySelectorAll(".eventdetailsicon");
+const eventregister = document.querySelectorAll(".event-register");
+const eventcard = document.querySelectorAll(".eventcard");
+const eventdetails = document.querySelectorAll(".eventdetails");
+const eventicons = document.querySelectorAll(".det-ico-left");
+const deticomiddle = document.querySelectorAll(".det-ico-middle");
+const deticoright = document.querySelectorAll(".det-ico-right");
+const toroticon = document.querySelectorAll(".toroticon");
+const eventregisterd = document.querySelectorAll(".eventregisterd");
+const whileclosecircle = document.querySelectorAll(".whileclosecircle");
+document.addEventListener("DOMContentLoaded", () => {
+    eventcard[3].classList.add("expandcard");
+    eventdetailsicon[3].classList.add("pointer");
+    eventdetails[3].classList.add("showcard")
+    eventicons[3].classList.remove("whileclose")
+    deticoright[3].classList.add("showico")
+    deticomiddle[3].classList.add("showico")
+    toroticon[3].classList.add("rotevico");
+    eventregisterd[3].classList.add("showcard")
+    whileclosecircle[3].style.opacity = 0;
+
 })
+eventcard.forEach((item, index) => {
+    item.addEventListener("click", () => {
+        eventcard.forEach(item => {
+            item.classList.remove("expandcard")
+        })
+        eventdetails.forEach(item => {
+            item.classList.remove('showcard')
+        })
+        deticomiddle.forEach(item => {
+            item.classList.remove("showico")
+        })
+        deticoright.forEach(item => {
+            item.classList.remove("showico")
+        })
+        toroticon.forEach(item => {
+            item.classList.remove("rotevico");
+        })
+        eventicons.forEach(item => {
+            item.classList.add("whileclose")
+        })
+        eventregisterd.forEach(item => {
+            item.classList.remove("showcard")
+        })
+        whileclosecircle.forEach(item => {
+            item.style.opacity = "1";
+        })
+        whileclosecircle[index].style.opacity = 0;
+        item.classList.add("expandcard");
+        onhovercard.forEach((item, index) => {
+            if (!(eventcard[index].classList.contains("expandcard"))) {
+
+                item.classList.remove("openeventdetails")
+            }
+        })
+        eventdetails[index].classList.add("showcard")
+        eventicons[index].classList.remove("whileclose")
+        deticoright[index].classList.add("showico")
+        deticomiddle[index].classList.add("showico")
+        toroticon[index].classList.add("rotevico");
+        eventregisterd[index].classList.add("showcard")
+        eventdetailsicon.forEach((item, index) => {
+            item.classList.remove("pointer");
+        })
+        eventdetailsicon[index].classList.add("pointer");
+
+    })
+})
+eventdetailsicon.forEach((item, index) => {
+    item.addEventListener("click", () => {
+        onhovercard[index].classList.add("openeventdetails");
+    })
+})
+clsdetails.forEach((item, index) => {
+    item.addEventListener("click", () => {
+        onhovercard[index].classList.remove("openeventdetails");
+    })
+})
+
+try {
+
+
+    const ssactual = document.querySelectorAll(".ss-actual");
+    const feedcomments = document.querySelectorAll(".feed-comments");
+    const feedstories = document.querySelectorAll(".feed-stories");
+    const suggesttrigger = document.querySelectorAll(".suggesttrigger");
+    const storytrigger = document.querySelectorAll(".storytrigger");
+
+
+    suggesttrigger.forEach((item, index) => {
+        item.addEventListener("click", () => {
+            feedcomments[index].classList.add("showss");
+            feedstories[index].classList.remove("showss")
+            suggesttrigger[index].classList.add("openss")
+            storytrigger[index].classList.remove("openss")
+        })
+    })
+    storytrigger.forEach((item, index) => {
+        item.addEventListener("click", () => {
+            feedcomments[index].classList.remove("showss");
+            feedstories[index].classList.add("showss")
+            suggesttrigger[index].classList.remove("openss")
+            storytrigger[index].classList.add("openss")
+        })
+    })
+    const likeicon = document.querySelectorAll(".likeicon");
+    const likescount = document.querySelectorAll(".likes-count");
+
+    likeicon.forEach((item, index) => {
+        item.addEventListener("click", () => {
+            item.classList.toggle("fillicon")
+            var val = parseInt(likescount[index].textContent)
+            if (item.classList.contains("fillicon")) {
+                val++;
+            }
+            else {
+                val--;
+            }
+
+
+            likescount[index].textContent = val;
+        })
+    })
+}
+catch (error) {
+    console.log(error)
+}
+
+try {
+    const commentlike = document.querySelectorAll(".commentlike");
+    const cmntlikecount = document.querySelectorAll(".cmntlikecount");
+    const ownercmntopt = document.querySelectorAll(".ownercmntopt");
+    const owner = document.querySelectorAll(".owner");
+    const notowner = document.querySelectorAll(".notowner");
+    let exclude = null;
+
+    ownercmntopt.forEach((item, index) => {
+        item.addEventListener("click", () => {
+            ownercmntopt.forEach(item => {
+                item.style.display = "none";
+            });
+            notowner[index].style.display = "none";
+            owner[index].style.display = "flex";
+            const relout = item.parentNode;
+            const foroverflow = relout.parentNode;
+            const commentsouter = foroverflow.querySelectorAll(".commentsouter");
+            exclude = index;
+            const outerarr = [];
+            for (var i = 0; i < commentsouter.length; i++) {
+                if (i !== exclude) {
+                    outerarr.push(i);
+                }
+            }
+            outerarr.unshift(exclude);
+            outerarr.forEach(i => {
+                foroverflow.appendChild(commentsouter[i]);
+            });
+            exclude = index;
+        });
+    });
+
+    commentlike.forEach((item, index) => {
+        item.addEventListener("click", () => {
+            item.classList.toggle("iflike");
+            var val = parseInt(cmntlikecount[index].textContent);
+            if (item.classList.contains("iflike")) {
+                val++;
+            } else {
+                val--;
+            }
+            cmntlikecount[index].textContent = val;
+            const outer = item.closest(".commentsouter");
+            const foroverflow = outer.parentNode;
+            const commentsouter = foroverflow.querySelectorAll(".commentsouter");
+            const commentarray = Array.from(commentsouter);
+            const individualpostlike = foroverflow.querySelectorAll(".cmntlikecount");
+            const likearr = Array.from(individualpostlike).map(like => parseInt(like.textContent));
+            if (!(exclude > 0)) {
+                const sortedIndexes = likearr.map((_, i) => i)
+                    .sort((a, b) => likearr[b] - likearr[a]);
+
+                sortedIndexes.forEach(i => {
+                    foroverflow.appendChild(commentarray[i]);
+                });
+
+            }
+            else {
+                let sortedIndexes = likearr.map((_, i) => i)
+                    .sort((a, b) => likearr[b] - likearr[a]);
+                console.log(sortedIndexes);
+                sortedIndexes = sortedIndexes.filter(item => item !== 0);
+                console.log(sortedIndexes)
+                let element = 0;
+                sortedIndexes.unshift(element)
+                console.log(sortedIndexes)
+
+                sortedIndexes.forEach(i => {
+                    foroverflow.appendChild(commentarray[i]);
+                });
+
+            }
+        });
+    });
+
+
+}
+catch (error) {
+    console.log(error)
 }
 
 
-const withtexttohandleback = document.querySelectorAll(".withtext");
-const takingvalueforbackground = document.querySelectorAll("#takingvalueforbackground");
-const storytextcontent = document.querySelectorAll(".storytextcontent");
-const takingvalueforstyle = document.querySelectorAll("#takingvalueforstyle");
-const storyinnercontent = document.querySelectorAll(".story-inner-content");
-if(withtexttohandleback){
-withtexttohandleback.forEach((item , index) => {
-        var back = window.getComputedStyle(item);
-        withtexttohandleback[index].style.backgroundImage = takingvalueforbackground[index].value;
-        if(storytextcontent[index]){
-        storytextcontent[index].style.fontFamily = takingvalueforstyle[index].value;
-        storyinnercontent[index].style.backgroundImage = takingvalueforbackground[index].value;
+function readPDF(input) {
+    // Check if any file is selected
+    if (input.files && input.files[0]) {
+        // Get the selected file
+        var file = input.files[0];
+        // Check if the selected file is a PDF
+        if (file.type === "application/pdf") {
+            var reader = new FileReader();
+            // Read the file as ArrayBuffer
+            reader.readAsArrayBuffer(file);
+            // Once the file is loaded
+            reader.onload = function (e) {
+                // Initialize PDF.js
+                pdfjsLib.getDocument({ data: e.target.result }).promise.then(function (pdf) {
+                    // Initialize variables to store PDF content
+                    let textContent = '';
+
+                    // Iterate through each page of the PDF
+                    for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+                        // Get the text content of the page
+                        pdf.getPage(pageNum).then(function (page) {
+                            return page.getTextContent();
+                        }).then(function (pageTextContent) {
+                            // Concatenate page text content to the overall text content
+                            pageTextContent.items.forEach(function (textItem) {
+                                textContent += textItem.str + ' ';
+                            });
+                        }).then(function () {
+                            // Display the text content when all pages have been processed
+                            if (pageNum === pdf.numPages) {
+                                // Display the text content
+                                document.getElementById('post-text-area').value = textContent;
+                                document.getElementById('post-text-area').style.height = document.getElementById('post-text-area').scrollHeight + 'px';
+                            }
+                        });
+                    }
+                }).catch(function (error) {
+                    console.error('Error loading PDF:', error);
+                });
+            };
+        } else {
+            alert("Please select a PDF file.");
         }
-});
+    }
+}
+//premium
+try {
+    const table = document.querySelectorAll(".table");
+    gsap.from(table, {
+        duration: 1,
+        opacity: 0, visibility: 'visible', y: -100
+    });
+}
+catch (error) {
+    console.log(error)
+}
+
+
+
+//editpannel
+try {
+    const textareaedit = document.querySelector("#post-text-area");
+    const editclose = document.querySelector(".editclose")
+    const editcontainer = document.querySelector(".editcontainer");
+
+    function handleRightClick(event) {
+        event.preventDefault();
+
+        gsap.from(editcontainer, {
+            duration: 0.3,
+            opacity: 0, visibility: 'visible',
+            scaleX: 0.9,
+            scaleY: 0.9,
+
+        })
+        gsap.to(editcontainer, { duration: 0.5, opacity: 1, display: "flex", });
+    }
+
+    textareaedit.addEventListener("contextmenu", function (event) {
+
+        handleRightClick(event);
+
+    });
+    editclose.addEventListener("click", () => {
+        gsap.to(editcontainer, { duration: 0.5, opacity: 0, display: "none", });
+    })
+    const wrapper = document.querySelector(".editcontainer"),
+        header = wrapper.querySelector(".drag");
+    function onDrag({ movementX, movementY }) {
+        let getStyle = window.getComputedStyle(wrapper);
+        let leftVal = parseInt(getStyle.left);
+        let topVal = parseInt(getStyle.top);
+        wrapper.style.left = `${leftVal + movementX}px`;
+        wrapper.style.top = `${topVal + movementY}px`;
+    }
+    header.addEventListener("mousedown", () => {
+        header.classList.add("active");
+        header.addEventListener("mousemove", onDrag);
+    });
+    document.addEventListener("mouseup", () => {
+        header.classList.remove("active");
+        header.removeEventListener("mousemove", onDrag);
+    });
+
+    const subtractfs = document.querySelector(".subtractfs");
+    const addfs = document.querySelector(".addfs");
+    const editfontsize = document.querySelector("#editfontsize");
+
+    subtractfs.addEventListener("click", () => {
+        var val = parseInt(editfontsize.value);
+        val--;
+        editfontsize.value = val;
+    })
+    addfs.addEventListener("click", () => {
+        var val = parseInt(editfontsize.value);
+        val++;
+        editfontsize.value = val;
+    })
+
+    const bold = document.querySelector(".bold");
+    bold.addEventListener("click", () => {
+        boldText();
+    })
+    function boldText() {
+        var textarea = document.getElementById("post-text-area");
+        var selectedText = textarea.value.substring(textarea.selectionStart, textarea.selectionEnd);
+        var newText = "<b>" + selectedText + "</b>";
+        var beforeText = textarea.value.substring(0, textarea.selectionStart);
+        var afterText = textarea.value.substring(textarea.selectionEnd);
+        textarea.value = beforeText + newText + afterText;
+    }
+}
+catch (error) {
+    console.log(error)
+}
+
+try {
+    const openwellbeing = document.querySelector(".openwellbeing");
+    const wellbeingwhole = document.querySelector(".wellbeingwhole");
+    const innerwellbeing = document.querySelector(".innerwellbeing");
+    openwellbeing.addEventListener("click", () => {
+        var t1 = gsap.timeline();
+        t1.to(wellbeingwhole, {
+            duration: 0.1,
+            opacity: 1,
+            visibility: 'visible',
+            display: 'flex',
+        })
+            .from(innerwellbeing, {
+                duration: 0.2,
+                x: window.innerHeight,
+                y: window.innerHeight,
+                scaleX: 0.6,
+                scaleY: 0.6
+
+            })
+            .to(innerwellbeing, {
+                duration: 0.4,
+                opacity: 1,
+                visibility: 'visible',
+
+            });
+
+
+    })
+
+    wellbeingwhole.addEventListener("click", function (event) {
+        if ((event.target.classList.contains("wellbeingwhole")) || event.target.classList.contains("innerwellbeing")) {
+            console.log(event.target.classList)
+            var t1 = gsap.timeline();
+
+
+            t1.to(innerwellbeing, {
+                duration: 0.2,
+                scaleX: 0.6,
+                scaleY: 0.6,
+                onComplete: function () {
+                    // Animation is complete, revert scaleX and scaleY back to 1
+                    gsap.to(innerwellbeing, {
+                        duration: 0, // Instantaneous change
+                        scaleX: 1,
+                        scaleY: 1
+                    });
+                }
+
+
+            })
+                .to(wellbeingwhole, {
+                    duration: 0,
+                    display: 'none',
+                    opacity: 0,
+                    visibility: 'hidden',
+
+
+                })
+        }
+    })
+
+}
+catch (error) {
+    console.log(error)
 }

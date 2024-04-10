@@ -4,7 +4,11 @@
     <div class="eventform">
         <div class="inner-event-form">
             <div class="designing-event-form">
-                <form action="" method="post" id="Formevent">
+                <form action="" method="post" id="Formevent" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="hidden" name="tillmonth" id="tillmonth">
+                    <input type="hidden" name="tillday" id="tillday">
+                    <input type="hidden" name="tillyear" id="tillyear">
                     <div class="form-inputs">
                         <div class="headingofpannel">
                             <div class="pannel-head-icon">
@@ -46,7 +50,7 @@
                                 <div class="event-title">
                                     <div class="event-title-label"><span>Title</span></div>
                                     <div class="title-input">
-                                        <input type="text" id="Inputtitle" placeholder="Add your event title">
+                                        <input type="text" id="Inputtitle" placeholder="Add your event title" name="eventformverify">
                                     </div>
 
                                 </div>
@@ -55,7 +59,7 @@
                                     <div class="category-input">
                                         <div class="category-input-left">
                                             <input type="text" id="InputCategory" class="InputCategory"
-                                                placeholder="Add a custom category" style="display: none;">
+                                                placeholder="Add a custom category" name="InputCategory" style="display: none;">
                                             <span class="select-default">Select a category</span>
                                         </div>
                                         <div class="category-input-right">
@@ -69,7 +73,7 @@
                                 <div class="event-desc">
                                     <div class="event-title-label"><span>Description</span></div>
                                     <div class="txtArea-desc">
-                                        <textarea name="" id="TextAreaDesc"
+                                        <textarea name="eventdesc" id="TextAreaDesc"
                                             placeholder="Add a description to encourage guests to attend to your event"></textarea>
                                     </div>
                                 </div>
@@ -88,9 +92,9 @@
                                                 <span style="font-family: 'inter', sans-serif;">,</span>&nbsp;
                                                 <span style="font-family: 'inter', sans-serif;"
                                                     class="year-span">2024</span>
-                                                <input type="hidden" id="month" class="hiddenInput" name="hiddenInput">
-                                                <input type="hidden" id="day" class="hiddenInput" name="hiddenInput">
-                                                <input type="hidden" id="year" class="hiddenInput" name="hiddenInput">
+                                                <input type="hidden" id="month" class="hiddenInput" name="month">
+                                                <input type="hidden" id="day" class="hiddenInput" name="day">
+                                                <input type="hidden" id="year" class="hiddenInput" name="year">
                                             </div>
                                             <div class="timedate-icon">
                                                 <span class="material-symbols-outlined">
@@ -432,9 +436,10 @@
                                                 </span>
                                             </div>
                                             
-                                            <input type="hidden" id="fromhour" class="hiddenInput" name="hiddenInput">
+                                            <input type="hidden" id="fromhour" class="hiddenInput" name="fhour">
                                             <input type="hidden" id="fromminutes" class="hiddenInput"
-                                                name="hiddenInput">
+                                                name="fmin">
+                                            <input type="hidden" id="fromampm" name="fampm">    
                                         </div>
                                         <div class="time-label"><span>To</span></div>
 
@@ -460,8 +465,9 @@
                                                 </span>
                                             </div>
                                             
-                                            <input type="hidden" id="tohour" class="hiddenInput" name="hiddenInput">
-                                            <input type="hidden" id="tominutes" class="hiddenInput" name="hiddenInput">
+                                            <input type="hidden" id="tohour" class="hiddenInput" name="thour">
+                                            <input type="hidden" id="tominutes" class="hiddenInput" name="tmin">
+                                            <input type="hidden" id="toampm" class="hiddenInput" name="tampm">
                                         </div>
                                     </div>
                                 </div>
@@ -491,7 +497,7 @@
                                                 </div>
                                                 <div class="every-input-times">
                                                     <div class="times-input">
-                                                        <input type="number" name="" id="times" class="times" value="0" maxlength="2"
+                                                        <input type="number" name="every" id="times" class="times" value="0" maxlength="2"
                                                             placeholder="0">
                                                     </div>
                                                     <div class="times-add-minus">
@@ -517,7 +523,7 @@
                                                 </div>
                                                 <div class="every-input-times">
                                                     <div class="times-input">
-                                                        <input type="number" name="" id="Occurences" class="times" value="0" maxlength="2"
+                                                        <input type="number" name="Occurences" id="Occurences" class="times" value="0" maxlength="2"
                                                             placeholder="0">
                                                     </div>
                                                     <div class="times-add-minus">
@@ -539,6 +545,7 @@
                                                         <li>Monthly</li>
                                                         <li>Quarterly</li>
                                                         <li>Yearly</li>
+                                                        <input type="hidden" id="insertbasisvalue" name="basis">
                                                     </ul>
                                                 </div>
                                             </div>
@@ -560,7 +567,7 @@
                                             </div>
                                         </div>
                                         <div class="address-input forphysical showforaddress">
-                                            <input type="text" name="event-adress" placeholder="Add your event address" id="eventaddress">
+                                            <input type="text" name="physical" placeholder="Add your event address" id="eventaddress">
                                         </div>
 
 
@@ -589,7 +596,7 @@
                                         <div class="input-add">
                                             <div class="Input-guest">
                                                 <input type="text" id="Inputguest1" class="Inputguest"
-                                                    placeholder="Add special guest(if any)">
+                                                    placeholder="Add special guest(if any)" name="guest">
                                             </div>
                                         </div>
                                        <div class="input-add-icons">
@@ -628,7 +635,7 @@
                                         </div>
                                         <div class="address-input entryfee">
                                             <div class="currency"><span>Rs.</span></div>
-                                            <input type="number" id="Entry-fee">
+                                            <input type="number" id="Entry-fee" name="fee">
                                         </div>
 
                                     </div>
@@ -636,27 +643,28 @@
                                 <div class="agelimit">
                                     <div class="event-title-label"><span>Age limit</span></div>
                                     <div class="checkbox-design">
-                                        <input type="radio" id="checkbox1" name="option" class="agecheck" value="value1">
+                                        <input type="radio" id="checkbox1" name="option" class="agecheck" value="All age group can participate">
                                         <label for="checkbox1">All age group</label>
 
                                     </div>
                                     <div class="checkbox-design">
-                                        <input type="radio" id="checkbox2" name="option" class="agecheck" value="value2">
+                                        <input type="radio" id="checkbox2" name="option" class="agecheck" value="Only age group above 13 can participate">
                                         <label for="checkbox2">Above 13+</label>
 
 
                                     </div>
                                     <div class="checkbox-design">
-                                        <input type="radio" id="checkbox3" name="option" class="agecheck" value="value3">
+                                        <input type="radio" id="checkbox3" name="option" class="agecheck" value="Only age group above 18 can participate">
                                         <label for="checkbox3">Above 18+</label>
 
 
                                     </div>
                                     <div class="checkbox-design">
-                                        <input type="radio" id="checkbox4" name="option"  class="agecheck" value="value4">
+                                        <input type="radio" id="checkbox4" name="option"  class="agecheck" value="Only age group above 45 can participate">
                                         <label for="checkbox4">More than 45+</label>
 
                                     </div>
+                                    <input type="hidden" id="agerestriction" name="req">
                                     
 
 
@@ -740,7 +748,7 @@
                                 <div class="designpreviewcard">
                                     <div class="backgroundcolordiv"></div>
                                     <div class="preview-card-image">
-                                        <input type="file" id="preview-card-img" accept="image/*" onchange="handleFileSelect(this)">
+                                        <input type="file" id="preview-card-img" accept="image/*" onchange="handleFileSelect(this)" name="eventimg" >
                                         <label for="preview-card-img" class="preview-card-img-label">
                                             <div class="add-img-vid">
                                                 <div class="defaul-add-img-vid-icon">
@@ -902,6 +910,7 @@
                 </form>
             </div>
         </div>
+   
         <div class="closingeventform">
             <span class="material-symbols-outlined">
                 close

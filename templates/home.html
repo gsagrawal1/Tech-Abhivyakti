@@ -7,7 +7,8 @@
         <div class="scroll-feed">
             <div class="inner-scroll-feed">
                 <div class="feeds">
-                    <div class="feeds-child">
+                   <!-- Facebook story clone -->
+                    <!-- <div class="feeds-child">
                         <div class="stories-div">
                             <div class="story-scroll">
                                 <div class="story-child">
@@ -122,7 +123,7 @@
                                 </span>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="feeds-child">
                         <div class="user-post-opt">
                             <div class="inner-post-opt">
@@ -182,7 +183,7 @@
                                     <div class="user-description">
                                         <div class="user-profile-circle">
                                             <div class="profile-circle">
-                                                <a href="">
+                                                <a href="/myprofile-lg/?pk={{p.user_id}}">
                                                     {% for userdetail in Userdetail %}
                                                     {% if userdetail.user == p.user %}
                                                     <img src="{{ userdetail.Profileimage.url }}"
@@ -357,7 +358,6 @@
                                             {% endif %}
                                             {% endif %}
 
-
                                         </div>
 
                                     </div>
@@ -365,1062 +365,292 @@
                                 <div class="border-line"></div>
                                 <div class="feed-option">
                                     <div class="inner-feed-option">
-                                        <div class="like-div lcs-div">
-                                            <div class="like-contain lcs-contain">
-                                                <div class="feed-option-icons">
-                                                    <span class="material-symbols-outlined">
-                                                        thumb_up
-                                                    </span>
-                                                </div>
-                                                <div class="feed-option-text">
-                                                    <span>Like</span>
-                                                </div>
+                                        <div class="suggestions design-ss">
+                                            <div class="ss-actual suggesttrigger openss">
+                                                <span>Suggestions</span>
                                             </div>
+
                                         </div>
-                                        <div class="comment-div lcs-div">
-                                            <div class="comment-contain lcs-contain">
-                                                <div class="feed-option-icons">
-                                                    <span class="material-symbols-outlined">
-                                                        comment
-                                                    </span>
-                                                </div>
-                                                <div class="feed-option-text"><span>Comment</span></div>
-                                            </div>
-                                        </div>
-                                        <div class="share-div lcs-div">
-                                            <div class="share-contain lcs-contain">
-                                                <div class="feed-option-icons">
-                                                    <span class="material-symbols-outlined">
-                                                        share
-                                                    </span>
-                                                </div>
-                                                <div class="feed-option-text">
-                                                    <span>Share</span>
-                                                </div>
+                                        <div class="stories design-ss">
+                                            <div class="ss-actual storytrigger">
+                                                <span>Stories</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="border-line" id="down-menu-border"></div>
-                                <div class="feed-comments">
-                                    {% if p.comments.all %}
-                                    <div class="readmore-comment">
-                                        
-                                        <a href=""><span>Read more comments</span></a>
-                                      
-                                    </div>
-                                    {% endif %}
-                                    <div class="for-overflow">
-                                        {% for c in p.comments.all %}
-                                        <div class="comments">
-                                            <div class="style-comment">
-                                                <div class="comment-header">
-                                                    <div class="commenter-circle-div">
-                                                        <div class="commenter-circle">
-                                                            {% for userprofile in Userdetail %}
-                                                            {% if userprofile.user == c.user %}
-                                                            <img src="{{userprofile.Profileimage.url}}" alt="" style="height: 100%; width: 100%; object-fit: cover; border-radius: 50%;">
-                                                            {% endif %}
-                                                            {% endfor %}
-                                                        </div>
-                                                    </div>
-                                                    <div class="commenter-name-div">
-                                                      
-                                                        <span class="commenter-name">{{c.user.first_name}}</span>
-                                                       
-                                                        <span class="comment-date"> -comentted at {{ p.created_at|date:"D, d M Y H:i:s" }}</span>
-                                                    </div>
+                                <div class="feedss">
+                                    <div class="feed-comments showss">
+                                        {% if p.comments.all %}
+                                        <div class="readmore-comment">
+                                            
+                                            <a href=""><span>Read more suggestions</span></a>
+                                          
+                                        </div>
+                                        {% endif %}
+                                        <div class="for-overflow">
+                                            {% for c in p.comments.all %}
+                                            <div class="commentsouter">
+                                                <div class="commentleft notowner">
+                                                    <span class="material-symbols-outlined commentlike">
+                                                        arrow_upward
+                                                        </span>
+                                                    <span class="cmntlikecount">343</span>    
                                                 </div>
-                                                <div class="comment-content">
-                                                    <div class="comment-jointer">
-                                                        <div class="cmnt-vertical-line"></div>
-                                                    </div>
-                                                    <div class="comment-flash">
-                                                        <div class="actual-comment">
-                                                            <span>{{c.text}}</span>
-                                                        </div>
-                                                        <div class="comment-option">
-                                                            <div class="reply-opt-text comment-opt-text">
-                                                                <a href=""><span>Reply</span></a>
-                                                            </div>
-                                                            <div class="report-opt-text comment-opt-text">
-                                                                <a href=""><span>Report</span></a>
-                                                            </div>
-                                                            <div class="report-opt-text comment-opt-text">
-                                                                <a class="cmntacc"><span>0 replies</span></a>
-                                                            </div>
-                                                            <div class="reply-count-opt">
-                                                                <span class="material-symbols-outlined cmnttoroticon">
-                                                                    expand_more
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                        <!-- <div class="recursion-comment">
-                                                            <div class="comments">
-                                                                <div class="style-comment">
-                                                                    <div class="comment-header">
-                                                                        <div class="commenter-circle-div">
-                                                                            <div class="commenter-circle"></div>
-                                                                        </div>
-                                                                        <div class="commenter-name-div">
-                                                                            <span class="commenter-name">Gaurav</span>
-                                                                            <span class="comment-date"> 10 hours
-                                                                                ago</span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="comment-content">
-                                                                        <div class="comment-jointer">
-                                                                            <div class="cmnt-vertical-line"></div>
-                                                                        </div>
-                                                                        <div class="comment-flash">
-                                                                            <div class="actual-comment">
-                                                                                <span>Lorem ipsum dolor sit amet
-                                                                                    consectetur
-                                                                                    adipisicing elit. Veniam dolores
-                                                                                    quisquam animi reprehenderit
-                                                                                    adipisci,
-                                                                                    expedita cumque aut qui dicta
-                                                                                    dolorem
-                                                                                    nesciunt cupiditate? Sapiente, ea
-                                                                                    atque
-                                                                                    laboriosam pariatur incidunt
-                                                                                    dignissimos
-                                                                                    soluta! lor</span>
-                                                                            </div>
-                                                                            <div class="comment-option">
-                                                                                <div
-                                                                                    class="reply-opt-text comment-opt-text">
-                                                                                    <a href=""><span>Reply</span></a>
-                                                                                </div>
-                                                                                <div
-                                                                                    class="report-opt-text comment-opt-text">
-                                                                                    <a href=""><span>Report</span></a>
-                                                                                </div>
-                                                                                <div
-                                                                                    class="report-opt-text comment-opt-text">
-                                                                                    <a class="cmntacc"><span>4
-                                                                                            replies</span></a>
-                                                                                </div>
-                                                                                <div class="reply-count-opt">
-                                                                                    <span
-                                                                                        class="material-symbols-outlined cmnttoroticon">
-                                                                                        expand_more
-                                                                                    </span>
-                                                                                </div>
-                                                                            </div>
-                                                                         
-                                                                        </div>
-                                                                    </div>
+                                                <div class="commentleft owner" style="display: none;">
+                                                    <span class="material-symbols-outlined">
+                                                        check
+                                                        </span>
+                                                    <span class="topanswer">Top suggest</span>    
+    
+                                                </div>
+                                                <div class="comments">
+                                                    <div class="style-comment">
+                                                        <div class="comment-header">
+                                                            <div class="commenter-circle-div">
+                                                                <div class="commenter-circle">
+                                                                    <a href="/myprofile-lg/?pk={{c.user_id}}">
+                                                                    {% for userprofile in Userdetail %}
+                                                                    {% if userprofile.user == c.user %}
+                                                                    <img src="{{userprofile.Profileimage.url}}" alt="" style="height: 100%; width: 100%; object-fit: cover; border-radius: 50%;">
+                                                                    {% endif %}
+                                                                    {% endfor %}
+                                                                    </a>
                                                                 </div>
                                                             </div>
-                                                        </div> -->
+                                                            <div class="commenter-name-div">
+                                                              
+                                                                <span class="commenter-name">{{c.user.first_name}}</span>
+                                                               
+                                                                <span class="comment-date"> -comentted at {{ p.created_at|date:"D, d M Y H:i:s" }}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="comment-content">
+                                                            <div class="comment-jointer">
+                                                                <div class="cmnt-vertical-line"></div>
+                                                            </div>
+                                                            <div class="comment-flash">
+                                                                <div class="actual-comment">
+                                                                    <span>{{c.text}}</span>
+                                                                </div>
+                                                               
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
+                                                {% if p.user == user %}
+                                                <div class="ownercmntopt">
+                                                    <span class="material-symbols-outlined">
+                                                        check
+                                                        </span>
+                                                </div>
+                                                {% endif %}
+                                            </div>
+                                            
+                                            {% endfor %}
+                                            
+                                        </div>
+    
+                                        <div class="user-cmnt-opt">
+                                            <div class="cmnt-user-circle-div">
+                                                <div class="cmnt-user-circle">
+                                                    {% for userdetail in Userdetail %}
+                                                    {% if userdetail.user == user %}
+                                                    <img src="{{ userdetail.Profileimage.url }}"
+                                                        alt="">
+                                                        {% endif %}
+                                                        {% endfor %}
+                                                </div>
+                                            </div>
+                                            <div class="cmnt-input">
+                                                <div class="design-cmnt-input">
+                                                    <form action="" id="commentform" method="post">
+                                                        {% csrf_token %}
+                                                    <div class="input-form">
+                                                        <input type="text" name="commentvalue" placeholder="Comment here.......">
+                                                    </div>
+                                                    <div class="input-form-icon-opt">
+                                                        <div class="cmnt-icon-div">
+                                                            <span class="material-symbols-outlined">
+                                                                add_reaction
+                                                            </span>
+                                                        </div>
+                                                        <div class="cmnt-icon-div">
+                                                            <span class="material-symbols-outlined">
+                                                                image
+                                                            </span>
+                                                        </div>
+                                                        <div class="cmnt-icon-div">
+                                                            <span class="material-symbols-outlined">
+                                                                gif_box
+                                                            </span>
+                                                        </div>
+                                                        <button type="submit" name="commentform_submit" style="background-color: inherit; border: inherit;" value="{{ p.id }}">
+    
+                                                       
+                                                        <div class="cmnt-icon-div" >
+                                                            <span class="material-symbols-outlined">
+                                                                send
+                                                            </span>
+                                                        </div>
+                                                    </button>
+                                                    </div>
+                                                </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="feed-stories">
+                                        <div class="readmore-comment">
+                                            
+                                            <a href=""><span>Read more stories</span></a>
+                                          
+                                        </div>
+                                        {% for pstory in p.stories.all %}
+                                        <div class="userstories">
+                                            <div class="userstoryleft">
+                                                <div class="storyleftheader">
+                                                    <div class="userstorycircle">
+                                                        {% for userdetail in Userdetail %}
+                                                        {% if userdetail.user == pstory.user %}
+                                                        <img src="{{ userdetail.Profileimage.url }}"
+                                                            alt="">
+                                                            {% endif %}
+                                                            {% endfor %}
+                                                    </div>
+                                                    <div class="userstoryname"><span>{{pstory.user.first_name}}</span></div>
+                                                </div>
+                                                <div class="storyactualcontent">
+                                                    {{ pstory.text }}
+                                                </div>
+
+                                            </div>
+                                            <div class="userstoryright">
+                                                <span class="material-symbols-outlined likeicon">
+                                                    favorite
+                                                    </span>
+                                                    <span class="likes-count">22</span>
                                             </div>
                                         </div>
                                         {% endfor %}
-                                        
-                                    </div>
-
-                                    <div class="user-cmnt-opt">
-                                        <div class="cmnt-user-circle-div">
-                                            <div class="cmnt-user-circle">
-                                                {% for userdetail in Userdetail %}
-                                                {% if userdetail.user == user %}
-                                                <img src="{{ userdetail.Profileimage.url }}"
-                                                    alt="">
-                                                    {% endif %}
-                                                    {% endfor %}
+                                        <div class="user-cmnt-opt">
+                                            <div class="cmnt-user-circle-div">
+                                                <div class="cmnt-user-circle">
+                                                    {% for userdetail in Userdetail %}
+                                                    {% if userdetail.user == user %}
+                                                    <img src="{{ userdetail.Profileimage.url }}"
+                                                        alt="">
+                                                        {% endif %}
+                                                        {% endfor %}
+                                                </div>
+                                            </div>
+                                            <div class="cmnt-input">
+                                                <div class="design-cmnt-input">
+                                                    <form action="" id="commentform" method="post">
+                                                        {% csrf_token %}
+                                                    <div class="input-form">
+                                                        <input type="text" name="storyvalue" placeholder="Share your story here.......">
+                                                    </div>
+                                                    <div class="input-form-icon-opt">
+                                                      
+                                                
+                                                        <button type="submit" name="storyform_submit" style="background-color: inherit; border: inherit;" value="{{ p.id }}">
+    
+                                                       
+                                                        <div class="cmnt-icon-div" >
+                                                            <span class="material-symbols-outlined">
+                                                                send
+                                                            </span>
+                                                        </div>
+                                                    </button>
+                                                    </div>
+                                                </form>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="cmnt-input">
-                                            <div class="design-cmnt-input">
-                                                <form action="" id="commentform" method="post">
-                                                    {% csrf_token %}
-                                                <div class="input-form">
-                                                    <input type="text" name="commentvalue" placeholder="Comment here.......">
-                                                </div>
-                                                <div class="input-form-icon-opt">
-                                                    <div class="cmnt-icon-div">
-                                                        <span class="material-symbols-outlined">
-                                                            add_reaction
-                                                        </span>
-                                                    </div>
-                                                    <div class="cmnt-icon-div">
-                                                        <span class="material-symbols-outlined">
-                                                            image
-                                                        </span>
-                                                    </div>
-                                                    <div class="cmnt-icon-div">
-                                                        <span class="material-symbols-outlined">
-                                                            gif_box
-                                                        </span>
-                                                    </div>
-                                                    <button type="submit" name="commentform_submit" style="background-color: inherit; border: inherit;" value="{{ p.id }}">
+                                        {% if not subscribed %}
+                                        <div class="premiumbuy">
+                                            <span class="premiumlabel">Continue reading & share story with premium </span>
+                                            <span class="subscribebtn"><a href="{% url 'subscribe' %}">Subscribe</a></span>
+                                            <span class="premiumlabeldown">Enjoy every content, features and more..</span>
 
-                                                   
-                                                    <div class="cmnt-icon-div" >
-                                                        <span class="material-symbols-outlined">
-                                                            send
-                                                        </span>
-                                                    </div>
-                                                </button>
-                                                </div>
-                                            </form>
-                                            </div>
                                         </div>
+                                        {%endif%}
+
+
                                     </div>
                                 </div>
+                               
                             </div>
                         </div>
                     </div>
                     {% endfor %}
-                    <div class="feeds-child">
-                        <div class="wrapper">
-                            <div class="containerwrapper">
-                                <input type="radio" name="slide" id="c1" class="eri" >
-                                <label for="c1" class="card">
-                                    <div class="eventcardimg">
-                                        <img src="/static/web images/fdf2b85b20deae0c025d046463cd1b25.jpg"
-                                            alt="">
+                    <div class="feeds-child" style="margin: 30px 0;">
+                        <div class="forum">
+                            <div class="makeupflex">
+                                <div class="forumfeedleft">
+                                    <div class="feeduserprofile">
+                                        <a href="">
+                                            <img src="/static/web images/036f28f03b1d245626e9cd0c627a8509.jpg" alt="">
+                                        </a>
                                     </div>
-                                    <div class="displayeventcircle">
-                                        <div class="eventcircle">
-                                            <img src="/static/web images/997282cb1ac48f7e4fb9eab06e8a5afc.jpg"
-                                                alt="">
-                                        </div>
+                                </div>
+                                <div class="forumfeedright">
+                                    <div class="headingfeed"><span><a href="/community/9" style="text-decoration: none; color: inherit;">Eco-conscious Citizens: Green Living for a Better Planet</a></span>
                                     </div>
-                                    <div class="caring-display">
-                                        <div class="card-event-invite">
-                                            <div class="card-user">
-                                                <a href="">
-                                                    <img src="/static/web images/997282cb1ac48f7e4fb9eab06e8a5afc.jpg"
-                                                        alt="">
-                                                </a>
-
-                                            </div>
-                                            <div class="card-title-handle">
-                                                <p><a href="">Arush verma</a> invites for <span>Save water </span>
-                                                    event </p>
-
-                                                &nbsp;
-
-                                            </div>
-
-                                        </div>
-                                        <div class="card-details-middle">
-                                            <div class="middle-left">
-                                                <div class="event-label"><span>Live Event</span></div>
-                                                <div class="event-fee"><span>₹</span>&nbsp;<span>Free tickets</span>
-                                                </div>
-                                            </div>
-                                            <div class="middle-right">
-                                                <div class="register-btn">
-                                                    <div class="inner-register-btn">
-                                                        <span>Register</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="descfeed"><span>
+                                      
+                                       
+                                        <a href="/community/9" style="text-decoration: none; color: inherit;">It is a community forum dedicated to individuals passionate about environmental sustainability and living a greener lifestyle. Join us to explore eco-friendly practices, share tips on reducing carbon footprint, discuss renewable energy solutions, and connect with like-minded individuals committed to preserving our planet for future generations. Together, let's empower each other to make environmentally conscious choices and create a more sustainable world for all.</a></span>
                                     </div>
-                                    <div class="eventrow">
-                                        <div class="eventicon">
-                                            <div class="eventarrowicon">
-                                                <span class="material-symbols-outlined toroticon">
-                                                    arrow_upward
-                                                </span>
-                                            </div>
-
-                                            <div class="eventdetailslabel">Event details</div>
-                                            <div class="managing-radius"></div>
-                                        </div>
-                                        <div class="alreadyregistered">
-                                            <div class="personicon">
-                                                <span class="material-symbols-outlined">
-                                                    account_circle
-                                                </span>
-                                            </div>
-                                            <div class="registeredlabel">
-                                                112 already registered
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="onhover-card-event" style="background-image: url('/static/web images/fdf2b85b20deae0c025d046463cd1b25.jpg');">
-                                        <div class="designpreviewcard">
-                                            <div class="onhover-card-details-event">
-                                                <div class="clsdetails">
-                                                    <span class="material-symbols-outlined">
-                                                        close
-                                                    </span>
-                                                </div>
-                                                <div class="onhover-event-title tobeflex">
-                                                    <span class="">"Event title"</span>
-                                                </div>
-                                                <div class="onhover-event-category"><span class="">(
-                                                        "Event category" )</span></div>
-                                                <div class="onhover-event-desciption"><span>"Your event description will
-                                                        shown
-                                                        here"</span></div>
-                                                <div class="onhover-horz-border"></div>
-                                                <div class="special-guests-label"><span>Special Guests</span></div>
-                                                <div class="special-guest-design-event">
-                                                    <div class="guest-name-display">
-                                                        <div class="star-icon">
-                                                            <span class="material-symbols-outlined">
-                                                                star
-                                                            </span>
-                                                        </div>
-                                                        <div class="star-name"><span>Guest name
-                                                                goes here</span></div>
-                                                    </div>
-                                                </div>
-                                                <div class="onhover-horz-border"></div>
-
-                                                <div class="onhover-card-labels"><span>Informations</span></div>
-                                                <div class="information-design">
-                                                    <div class="id-icon"><span class="material-symbols-outlined">
-                                                            currency_rupee
-                                                        </span></div>
-                                                    <div class="id-icon-name"><span>Free
-                                                            tickets</span></div>
-                                                </div>
-                                                <div class="information-design">
-                                                    <div class="id-icon"><span class="material-symbols-outlined">
-                                                            calendar_today
-                                                        </span></div>
-                                                    <div class="id-icon-name"><span>Jan 1,
-                                                            2024</span></div>
-                                                </div>
-                                                <div class="information-design">
-                                                    <div class="id-icon"><span class="material-symbols-outlined">
-                                                            schedule
-                                                        </span></div>
-                                                    <div class="id-icon-name">
-                                                        <span>From</span>&nbsp;
-                                                        <span>12</span>
-                                                        <span style="font-size: 18px;">:</span>
-                                                        <span>00
-                                                        </span>
-                                                        <span>AM</span>&nbsp;
-                                                        <span>---</span>
-                                                        &nbsp;
-                                                        <span>To</span>&nbsp;
-                                                        <span>12</span>
-                                                        <span style="font-size: 18px;">:</span>
-                                                        <span>00
-                                                        </span>
-                                                        <span>AM</span>
-                                                    </div>
-                                                </div>
-                                                <div class="information-design displayoccurence" style="display: none;">
-                                                    <div class="id-icon"><span class="material-symbols-outlined">
-                                                            restart_alt
-                                                        </span></div>
-                                                    <div class="id-icon-name">
-                                                        <span>Event will held for continous</span>&nbsp;
-                                                        <span>0</span>&nbsp;
-                                                        <span>times a</span>&nbsp;
-                                                        <span>"Event frequency"</span>&nbsp;
-                                                        <span>till</span>&nbsp;
-                                                        <span>"date"</span>
-                                                    </div>
-                                                </div>
-                                                <div class="information-design">
-                                                    <div class="id-icon"><span class="material-symbols-outlined">
-                                                            location_on
-                                                        </span></div>
-                                                    <div class="id-icon-name"><span>"Event
-                                                            Address"</span></div>
-                                                </div>
-                                                <div class="onhover-card-labels"><span>Requirements</span></div>
-                                                <div class="information-design">
-                                                    <div class="id-icon"><span class="material-symbols-outlined">
-                                                            person
-                                                        </span></div>
-                                                    <div class="id-icon-name"><span>"Age
-                                                            limit"</span></div>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </label>
-                                <input type="radio" name="slide" id="c2" class="eri">
-                                <label for="c2" class="card">
-                                    <div class="eventcardimg">
-                                        <img src="/static/web images/3728e54aeca3f74c4f6b3785206002fe.jpg"
-                                            alt="">
-                                    </div>
-                                    <div class="displayeventcircle">
-                                        <div class="eventcircle">
-                                            <img src="/static/web images/385e19bb0f1b6047725ad5a4858f9b0d.jpg"
-                                                alt="">
-                                        </div>
-                                    </div>
-                                    <div class="caring-display">
-                                        <div class="card-event-invite">
-                                            <div class="card-user">
-                                                <a href="">
-                                                    <img src="/static/web images/385e19bb0f1b6047725ad5a4858f9b0d.jpg"
-                                                        alt="">
-                                                </a>
-
-                                            </div>
-                                            <div class="card-title-handle">
-                                                <p><a href="">Harsh</a> invites for <span>Fashion show</span>
-                                                    event </p>
-
-                                                &nbsp;
-
-                                            </div>
-
-                                        </div>
-                                        <div class="card-details-middle">
-                                            <div class="middle-left">
-                                                <div class="event-label"><span>Live Event</span></div>
-                                                <div class="event-fee"><span>₹</span>&nbsp;<span>5999</span>
-                                                </div>
-                                            </div>
-                                            <div class="middle-right">
-                                                <div class="register-btn">
-                                                    <div class="inner-register-btn">
-                                                        <span>Register</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="eventrow">
-                                        <div class="eventicon">
-                                            <div class="eventarrowicon">
-                                                <span class="material-symbols-outlined toroticon">
-                                                    arrow_upward
-                                                </span>
-                                            </div>
-
-                                            <div class="eventdetailslabel">Event details</div>
-                                            <div class="managing-radius"></div>
-                                        </div>
-                                        <div class="alreadyregistered">
-                                            <div class="personicon">
-                                                <span class="material-symbols-outlined">
-                                                    account_circle
-                                                </span>
-                                            </div>
-                                            <div class="registeredlabel">
-                                                35 already registered
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="onhover-card-event" style="background-image: url('/static/web images/3728e54aeca3f74c4f6b3785206002fe.jpg');">
-                                        <div class="designpreviewcard">
-                                            <div class="onhover-card-details-event">
-                                                <div class="clsdetails">
-                                                    <span class="material-symbols-outlined">
-                                                        close
-                                                    </span>
-                                                </div>
-                                                <div class="onhover-event-title tobeflex">
-                                                    <span class="">"Event title"</span>
-                                                </div>
-                                                <div class="onhover-event-category"><span class="">(
-                                                        "Event category" )</span></div>
-                                                <div class="onhover-event-desciption"><span>"Your event description will
-                                                        shown
-                                                        here"</span></div>
-                                                <div class="onhover-horz-border"></div>
-                                                <div class="special-guests-label"><span>Special Guests</span></div>
-                                                <div class="special-guest-design-event">
-                                                    <div class="guest-name-display">
-                                                        <div class="star-icon">
-                                                            <span class="material-symbols-outlined">
-                                                                star
-                                                            </span>
-                                                        </div>
-                                                        <div class="star-name"><span>Guest name
-                                                                goes here</span></div>
-                                                    </div>
-                                                </div>
-                                                <div class="onhover-horz-border"></div>
-
-                                                <div class="onhover-card-labels"><span>Informations</span></div>
-                                                <div class="information-design">
-                                                    <div class="id-icon"><span class="material-symbols-outlined">
-                                                            currency_rupee
-                                                        </span></div>
-                                                    <div class="id-icon-name"><span>Free
-                                                            tickets</span></div>
-                                                </div>
-                                                <div class="information-design">
-                                                    <div class="id-icon"><span class="material-symbols-outlined">
-                                                            calendar_today
-                                                        </span></div>
-                                                    <div class="id-icon-name"><span>Jan 1,
-                                                            2024</span></div>
-                                                </div>
-                                                <div class="information-design">
-                                                    <div class="id-icon"><span class="material-symbols-outlined">
-                                                            schedule
-                                                        </span></div>
-                                                    <div class="id-icon-name">
-                                                        <span>From</span>&nbsp;
-                                                        <span>12</span>
-                                                        <span style="font-size: 18px;">:</span>
-                                                        <span>00
-                                                        </span>
-                                                        <span>AM</span>&nbsp;
-                                                        <span>---</span>
-                                                        &nbsp;
-                                                        <span>To</span>&nbsp;
-                                                        <span>12</span>
-                                                        <span style="font-size: 18px;">:</span>
-                                                        <span>00
-                                                        </span>
-                                                        <span>AM</span>
-                                                    </div>
-                                                </div>
-                                                <div class="information-design displayoccurence" style="display: none;">
-                                                    <div class="id-icon"><span class="material-symbols-outlined">
-                                                            restart_alt
-                                                        </span></div>
-                                                    <div class="id-icon-name">
-                                                        <span>Event will held for continous</span>&nbsp;
-                                                        <span>0</span>&nbsp;
-                                                        <span>times a</span>&nbsp;
-                                                        <span>"Event frequency"</span>&nbsp;
-                                                        <span>till</span>&nbsp;
-                                                        <span>"date"</span>
-                                                    </div>
-                                                </div>
-                                                <div class="information-design">
-                                                    <div class="id-icon"><span class="material-symbols-outlined">
-                                                            location_on
-                                                        </span></div>
-                                                    <div class="id-icon-name"><span>"Event
-                                                            Address"</span></div>
-                                                </div>
-                                                <div class="onhover-card-labels"><span>Requirements</span></div>
-                                                <div class="information-design">
-                                                    <div class="id-icon"><span class="material-symbols-outlined">
-                                                            person
-                                                        </span></div>
-                                                    <div class="id-icon-name"><span>"Age
-                                                            limit"</span></div>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </label>
-                                <input type="radio" name="slide" id="c3" class="eri" checked>
-                                <label for="c3" class="card">
-                                    <div class="eventcardimg">
-                                        <img src="/static/web images/e1d86732c8f94eb45d5278c90f3cc89e.jpg"
-                                            alt="">
-                                    </div>
-                                    <div class="displayeventcircle">
-                                        <div class="eventcircle">
-                                            <img src="/static/web images/385e19bb0f1b6047725ad5a4858f9b0d.jpg"
-                                                alt="">
-                                        </div>
-                                    </div>
-                                    <div class="caring-display">
-                                        <div class="card-event-invite">
-                                            <div class="card-user">
-                                                <a href="">
-                                                    <img src="/static/web images/385e19bb0f1b6047725ad5a4858f9b0d.jpg"
-                                                        alt="">
-                                                </a>
-
-                                            </div>
-                                            <div class="card-title-handle">
-                                                <p><a href="">Abhinav Pandit</a> invites for <span>Save tree</span>
-                                                    event </p>
-
-                                                &nbsp;
-
-                                            </div>
-
-                                        </div>
-                                        <div class="card-details-middle">
-                                            <div class="middle-left">
-                                                <div class="event-label"><span>Live Event</span></div>
-                                                <div class="event-fee"><span>₹</span>&nbsp;<span>Free tickets</span>
-                                                </div>
-                                            </div>
-                                            <div class="middle-right">
-                                                <div class="register-btn">
-                                                    <div class="inner-register-btn">
-                                                        <span>Register</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="eventrow">
-                                        <div class="eventicon">
-                                            <div class="eventarrowicon">
-                                                <span class="material-symbols-outlined toroticon">
-                                                    arrow_upward
-                                                </span>
-                                            </div>
-
-                                            <div class="eventdetailslabel">Event details</div>
-                                            <div class="managing-radius"></div>
-                                        </div>
-                                        <div class="alreadyregistered">
-                                            <div class="personicon">
-                                                <span class="material-symbols-outlined">
-                                                    account_circle
-                                                </span>
-                                            </div>
-                                            <div class="registeredlabel">
-                                                335 already registered
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="onhover-card-event"  style="background-image: url('/static/web images/e1d86732c8f94eb45d5278c90f3cc89e.jpg');">
-                                        <div class="designpreviewcard">
-                                            <div class="onhover-card-details-event">
-                                                <div class="clsdetails">
-                                                    <span class="material-symbols-outlined">
-                                                        close
-                                                    </span>
-                                                </div>
-                                                <div class="onhover-event-title tobeflex">
-                                                    <span class="">Save tree</span>
-                                                </div>
-                                                <div class="onhover-event-category"><span class="">(
-                                                    Tree Planting Initiative )</span></div>
-                                                <div class="onhover-event-desciption"><span>Save tree to save earth for the upcoming generations. We all can do this just by planting trees.
-                                                        here"</span></div>
-                                                <div class="onhover-horz-border"></div>
-                                                <div class="special-guests-label"><span>Special Guests</span></div>
-                                                <div class="special-guest-design-event">
-                                                    <div class="guest-name-display">
-                                                        <div class="star-icon">
-                                                            <span class="material-symbols-outlined">
-                                                                star
-                                                            </span>
-                                                        </div>
-                                                        <div class="star-name"><span>Virat Kohli</span></div>
-                                                    </div>
-                                                </div>
-                                                <div class="onhover-horz-border"></div>
-
-                                                <div class="onhover-card-labels"><span>Informations</span></div>
-                                                <div class="information-design">
-                                                    <div class="id-icon"><span class="material-symbols-outlined">
-                                                            currency_rupee
-                                                        </span></div>
-                                                    <div class="id-icon-name"><span>Free
-                                                            tickets</span></div>
-                                                </div>
-                                                <div class="information-design">
-                                                    <div class="id-icon"><span class="material-symbols-outlined">
-                                                            calendar_today
-                                                        </span></div>
-                                                    <div class="id-icon-name"><span>Mar 25,
-                                                            2024</span></div>
-                                                </div>
-                                                <div class="information-design">
-                                                    <div class="id-icon"><span class="material-symbols-outlined">
-                                                            schedule
-                                                        </span></div>
-                                                    <div class="id-icon-name">
-                                                        <span>From</span>&nbsp;
-                                                        <span>9</span>
-                                                        <span style="font-size: 18px;">:</span>
-                                                        <span>00
-                                                        </span>
-                                                        <span>AM</span>&nbsp;
-                                                        <span>---</span>
-                                                        &nbsp;
-                                                        <span>To</span>&nbsp;
-                                                        <span>4</span>
-                                                        <span style="font-size: 18px;">:</span>
-                                                        <span>00
-                                                        </span>
-                                                        <span>PM</span>
-                                                    </div>
-                                                </div>
-                                                <div class="information-design displayoccurence" style="display: none;">
-                                                    <div class="id-icon"><span class="material-symbols-outlined">
-                                                            restart_alt
-                                                        </span></div>
-                                                    <div class="id-icon-name">
-                                                        <span>Event will held for continous</span>&nbsp;
-                                                        <span>1</span>&nbsp;
-                                                        <span>times a</span>&nbsp;
-                                                        <span>Day</span>&nbsp;
-                                                        <span>till</span>&nbsp;
-                                                        <span>Mar 30, 2024</span>
-                                                    </div>
-                                                </div>
-                                                <div class="information-design">
-                                                    <div class="id-icon"><span class="material-symbols-outlined">
-                                                            location_on
-                                                        </span></div>
-                                                    <div class="id-icon-name"><span>Chandigarh sector 43, Chandigarh</span></div>
-                                                </div>
-                                                <div class="onhover-card-labels"><span>Requirements</span></div>
-                                                <div class="information-design">
-                                                    <div class="id-icon"><span class="material-symbols-outlined">
-                                                            person
-                                                        </span></div>
-                                                    <div class="id-icon-name"><span>All age group can participate</span></div>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </label>
-                                <input type="radio" name="slide" id="c4" class="eri">
-                                <label for="c4" class="card">
-                                    <div class="eventcardimg">
-                                        <img src="/static/web images/62dc9d89fe7ce8bd137d9fc0d7fcc8de.jpg"
-                                            alt="">
-                                    </div>
-                                    <div class="displayeventcircle">
-                                        <div class="eventcircle">
-                                            <img src="/static/web images/04d7024ad3d3d49a31511cf43cd3f3c4.jpg"
-                                                alt="">
-                                        </div>
-                                    </div>
-                                    <div class="caring-display">
-                                        <div class="card-event-invite">
-                                            <div class="card-user">
-                                                <a href="">
-                                                    <img src="/static/web images/04d7024ad3d3d49a31511cf43cd3f3c4.jpg"
-                                                        alt="">
-                                                </a>
-
-                                            </div>
-                                            <div class="card-title-handle">
-                                                <p><a href="">Aashish</a> invites for <span>Summer party</span>
-                                                    event </p>
-
-                                                &nbsp;
-
-                                            </div>
-
-                                        </div>
-                                        <div class="card-details-middle">
-                                            <div class="middle-left">
-                                                <div class="event-label"><span>Live Event</span></div>
-                                                <div class="event-fee"><span>₹</span>&nbsp;<span>2500</span>
-                                                </div>
-                                            </div>
-                                            <div class="middle-right">
-                                                <div class="register-btn">
-                                                    <div class="inner-register-btn">
-                                                        <span>Register</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="eventrow">
-                                        <div class="eventicon">
-                                            <div class="eventarrowicon">
-                                                <span class="material-symbols-outlined toroticon">
-                                                    arrow_upward
-                                                </span>
-                                            </div>
-
-                                            <div class="eventdetailslabel">Event details</div>
-                                            <div class="managing-radius"></div>
-                                        </div>
-                                        <div class="alreadyregistered">
-                                            <div class="personicon">
-                                                <span class="material-symbols-outlined">
-                                                    account_circle
-                                                </span>
-                                            </div>
-                                            <div class="registeredlabel">
-                                                88 already registered
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="onhover-card-event" style="background-image: url('/static/web images/62dc9d89fe7ce8bd137d9fc0d7fcc8de.jpg');">
-                                        <div class="designpreviewcard">
-                                            <div class="onhover-card-details-event">
-                                                <div class="clsdetails">
-                                                    <span class="material-symbols-outlined">
-                                                        close
-                                                    </span>
-                                                </div>
-                                                <div class="onhover-event-title tobeflex">
-                                                    <span class="">"Event title"</span>
-                                                </div>
-                                                <div class="onhover-event-category"><span class="">(
-                                                        "Event category" )</span></div>
-                                                <div class="onhover-event-desciption"><span>"Your event description will
-                                                        shown
-                                                        here"</span></div>
-                                                <div class="onhover-horz-border"></div>
-                                                <div class="special-guests-label"><span>Special Guests</span></div>
-                                                <div class="special-guest-design-event">
-                                                    <div class="guest-name-display">
-                                                        <div class="star-icon">
-                                                            <span class="material-symbols-outlined">
-                                                                star
-                                                            </span>
-                                                        </div>
-                                                        <div class="star-name"><span>Guest name
-                                                                goes here</span></div>
-                                                    </div>
-                                                </div>
-                                                <div class="onhover-horz-border"></div>
-
-                                                <div class="onhover-card-labels"><span>Informations</span></div>
-                                                <div class="information-design">
-                                                    <div class="id-icon"><span class="material-symbols-outlined">
-                                                            currency_rupee
-                                                        </span></div>
-                                                    <div class="id-icon-name"><span>Free
-                                                            tickets</span></div>
-                                                </div>
-                                                <div class="information-design">
-                                                    <div class="id-icon"><span class="material-symbols-outlined">
-                                                            calendar_today
-                                                        </span></div>
-                                                    <div class="id-icon-name"><span>Jan 1,
-                                                            2024</span></div>
-                                                </div>
-                                                <div class="information-design">
-                                                    <div class="id-icon"><span class="material-symbols-outlined">
-                                                            schedule
-                                                        </span></div>
-                                                    <div class="id-icon-name">
-                                                        <span>From</span>&nbsp;
-                                                        <span>12</span>
-                                                        <span style="font-size: 18px;">:</span>
-                                                        <span>00
-                                                        </span>
-                                                        <span>AM</span>&nbsp;
-                                                        <span>---</span>
-                                                        &nbsp;
-                                                        <span>To</span>&nbsp;
-                                                        <span>12</span>
-                                                        <span style="font-size: 18px;">:</span>
-                                                        <span>00
-                                                        </span>
-                                                        <span>AM</span>
-                                                    </div>
-                                                </div>
-                                                <div class="information-design displayoccurence" style="display: none;">
-                                                    <div class="id-icon"><span class="material-symbols-outlined">
-                                                            restart_alt
-                                                        </span></div>
-                                                    <div class="id-icon-name">
-                                                        <span>Event will held for continous</span>&nbsp;
-                                                        <span>0</span>&nbsp;
-                                                        <span>times a</span>&nbsp;
-                                                        <span>"Event frequency"</span>&nbsp;
-                                                        <span>till</span>&nbsp;
-                                                        <span>"date"</span>
-                                                    </div>
-                                                </div>
-                                                <div class="information-design">
-                                                    <div class="id-icon"><span class="material-symbols-outlined">
-                                                            location_on
-                                                        </span></div>
-                                                    <div class="id-icon-name"><span>"Event
-                                                            Address"</span></div>
-                                                </div>
-                                                <div class="onhover-card-labels"><span>Requirements</span></div>
-                                                <div class="information-design">
-                                                    <div class="id-icon"><span class="material-symbols-outlined">
-                                                            person
-                                                        </span></div>
-                                                    <div class="id-icon-name"><span>"Age
-                                                            limit"</span></div>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </label>
-                                <input type="radio" name="slide" id="c5" class="eri">
-                                <label for="c5" class="card">
-                                    <div class="eventcardimg">
-                                        <img src="/static/web images/036f28f03b1d245626e9cd0c627a8509.jpg"
-                                            alt="">
-                                    </div>
-                                    <div class="displayeventcircle">
-                                        <div class="eventcircle">
-                                            <img src="/static/web images/IMG_20221223_175627.jpg"
-                                                alt="">
-                                        </div>
-                                    </div>
-                                    <div class="caring-display">
-                                        <div class="card-event-invite">
-                                            <div class="card-user">
-                                                <a href="">
-                                                    <img src="/static/web images/IMG_20221223_175627.jpg"
-                                                        alt="">
-                                                </a>
-
-                                            </div>
-                                            <div class="card-title-handle">
-                                                <p><a href="">GS Agrawal</a> invites for <span>Comedy night</span>
-                                                    event </p>
-
-                                                &nbsp;
-
-                                            </div>
-
-                                        </div>
-                                        <div class="card-details-middle">
-                                            <div class="middle-left">
-                                                <div class="event-label"><span>Live Event</span></div>
-                                                <div class="event-fee"><span>₹</span>&nbsp;<span>799</span>
-                                                </div>
-                                            </div>
-                                            <div class="middle-right">
-                                                <div class="register-btn">
-                                                    <div class="inner-register-btn">
-                                                        <span>Register</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="eventrow">
-                                        <div class="eventicon">
-                                            <div class="eventarrowicon">
-                                                <span class="material-symbols-outlined toroticon">
-                                                    arrow_upward
-                                                </span>
-                                            </div>
-
-                                            <div class="eventdetailslabel">Event details</div>
-                                            <div class="managing-radius"></div>
-                                        </div>
-                                        <div class="alreadyregistered">
-                                            <div class="personicon">
-                                                <span class="material-symbols-outlined">
-                                                    account_circle
-                                                </span>
-                                            </div>
-                                            <div class="registeredlabel">
-                                                241 already registered
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="onhover-card-event" style="background-image: url('/static/web images/036f28f03b1d245626e9cd0c627a8509.jpg');">
-                                        <div class="designpreviewcard">
-                                            <div class="onhover-card-details-event">
-                                                <div class="clsdetails">
-                                                    <span class="material-symbols-outlined">
-                                                        close
-                                                    </span>
-                                                </div>
-                                                <div class="onhover-event-title tobeflex">
-                                                    <span class="">"Event title"</span>
-                                                </div>
-                                                <div class="onhover-event-category"><span class="">(
-                                                        "Event category" )</span></div>
-                                                <div class="onhover-event-desciption"><span>"Your event description will
-                                                        shown
-                                                        here"</span></div>
-                                                <div class="onhover-horz-border"></div>
-                                                <div class="special-guests-label"><span>Special Guests</span></div>
-                                                <div class="special-guest-design-event">
-                                                    <div class="guest-name-display">
-                                                        <div class="star-icon">
-                                                            <span class="material-symbols-outlined">
-                                                                star
-                                                            </span>
-                                                        </div>
-                                                        <div class="star-name"><span>Guest name
-                                                                goes here</span></div>
-                                                    </div>
-                                                </div>
-                                                <div class="onhover-horz-border"></div>
-
-                                                <div class="onhover-card-labels"><span>Informations</span></div>
-                                                <div class="information-design">
-                                                    <div class="id-icon"><span class="material-symbols-outlined">
-                                                            currency_rupee
-                                                        </span></div>
-                                                    <div class="id-icon-name"><span>Free
-                                                            tickets</span></div>
-                                                </div>
-                                                <div class="information-design">
-                                                    <div class="id-icon"><span class="material-symbols-outlined">
-                                                            calendar_today
-                                                        </span></div>
-                                                    <div class="id-icon-name"><span>Jan 1,
-                                                            2024</span></div>
-                                                </div>
-                                                <div class="information-design">
-                                                    <div class="id-icon"><span class="material-symbols-outlined">
-                                                            schedule
-                                                        </span></div>
-                                                    <div class="id-icon-name">
-                                                        <span>From</span>&nbsp;
-                                                        <span>12</span>
-                                                        <span style="font-size: 18px;">:</span>
-                                                        <span>00
-                                                        </span>
-                                                        <span>AM</span>&nbsp;
-                                                        <span>---</span>
-                                                        &nbsp;
-                                                        <span>To</span>&nbsp;
-                                                        <span>12</span>
-                                                        <span style="font-size: 18px;">:</span>
-                                                        <span>00
-                                                        </span>
-                                                        <span>AM</span>
-                                                    </div>
-                                                </div>
-                                                <div class="information-design displayoccurence" style="display: none;">
-                                                    <div class="id-icon"><span class="material-symbols-outlined">
-                                                            restart_alt
-                                                        </span></div>
-                                                    <div class="id-icon-name">
-                                                        <span>Event will held for continous</span>&nbsp;
-                                                        <span>0</span>&nbsp;
-                                                        <span>times a</span>&nbsp;
-                                                        <span>"Event frequency"</span>&nbsp;
-                                                        <span>till</span>&nbsp;
-                                                        <span>"date"</span>
-                                                    </div>
-                                                </div>
-                                                <div class="information-design">
-                                                    <div class="id-icon"><span class="material-symbols-outlined">
-                                                            location_on
-                                                        </span></div>
-                                                    <div class="id-icon-name"><span>"Event
-                                                            Address"</span></div>
-                                                </div>
-                                                <div class="onhover-card-labels"><span>Requirements</span></div>
-                                                <div class="information-design">
-                                                    <div class="id-icon"><span class="material-symbols-outlined">
-                                                            person
-                                                        </span></div>
-                                                    <div class="id-icon-name"><span>"Age
-                                                            limit"</span></div>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </label>
+                                </div>
                             </div>
+                            <div class="bottomfeed">
+                                <div class="bfleft">
+                                    <div class="feedicons">
+                                        <span class="material-symbols-outlined">
+                                            thumb_up
+                                        </span>
+                                    </div>
+                                    <div class="feedsupportlabel"><span>23</span></div>
+                                    <div class="feedicons">
+                                        <span class="material-symbols-outlined" style="color: rgb(179, 17, 17); margin-bottom: -3px;">
+                                            thumb_down
+                                        </span>
+                                    </div>
+                                    <div class="feedsupportlabel"><span>23</span></div>
+                                    <div class="feedicons">
+                                        <span class="material-symbols-outlined" style="color: grey;">
+                                            reply
+                                        </span>
+                                    </div>
+                                    <div class="feedicons" style="margin-left: 20px;">
+                                        <span class="material-symbols-outlined" style="color: grey;">
+                                            schedule
+                                        </span>
+                                    </div>
+                                    <div class="feedsupportlabel" style="margin-left: 8px;"><span>Posted on : 20 March</span>
+                                    </div>
+                                </div>
+        
+                                <div class="bfright">
+                                    <div class="feedicons">
+                                        <span class="material-symbols-outlined" style="color: grey; margin: 0 10px;   transform: scaleX(-1);">
+                                            reply
+                                        </span>
+                                    </div>
+                                    <div class="feedicons">
+                                        <span class="material-symbols-outlined" style="color: grey; margin: 0 10px; ">
+                                            flag
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+        
                         </div>
+                    </div>
+                   
+                    <div class="feeds-child">
+                        {% include "eventscard.html" %}
                     </div>
                     {% for p in post1 %}
                     <div class="feeds-child">
@@ -1430,7 +660,7 @@
                                     <div class="user-description">
                                         <div class="user-profile-circle">
                                             <div class="profile-circle">
-                                                <a href="">
+                                                <a href="/myprofile-lg/?pk={{p.user_id}}">
                                                     {% for userdetail in Userdetail %}
                                                     {% if userdetail.user == p.user %}
                                                     <img src="{{ userdetail.Profileimage.url }}"
@@ -1605,7 +835,6 @@
                                             {% endif %}
                                             {% endif %}
 
-
                                         </div>
 
                                     </div>
@@ -1613,212 +842,221 @@
                                 <div class="border-line"></div>
                                 <div class="feed-option">
                                     <div class="inner-feed-option">
-                                        <div class="like-div lcs-div">
-                                            <div class="like-contain lcs-contain">
-                                                <div class="feed-option-icons">
-                                                    <span class="material-symbols-outlined">
-                                                        thumb_up
-                                                    </span>
-                                                </div>
-                                                <div class="feed-option-text">
-                                                    <span>Like</span>
-                                                </div>
+                                        <div class="suggestions design-ss">
+                                            <div class="ss-actual suggesttrigger openss">
+                                                <span>Suggestions</span>
                                             </div>
+
                                         </div>
-                                        <div class="comment-div lcs-div">
-                                            <div class="comment-contain lcs-contain">
-                                                <div class="feed-option-icons">
-                                                    <span class="material-symbols-outlined">
-                                                        comment
-                                                    </span>
-                                                </div>
-                                                <div class="feed-option-text"><span>Comment</span></div>
-                                            </div>
-                                        </div>
-                                        <div class="share-div lcs-div">
-                                            <div class="share-contain lcs-contain">
-                                                <div class="feed-option-icons">
-                                                    <span class="material-symbols-outlined">
-                                                        share
-                                                    </span>
-                                                </div>
-                                                <div class="feed-option-text">
-                                                    <span>Share</span>
-                                                </div>
+                                        <div class="stories design-ss">
+                                            <div class="ss-actual storytrigger">
+                                                <span>Stories</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="border-line" id="down-menu-border"></div>
-                                <div class="feed-comments">
-                                    {% if p.comments.all %}
-                                    <div class="readmore-comment">
-                                        
-                                        <a href=""><span>Read more comments</span></a>
-                                      
-                                    </div>
-                                    {% endif %}
-                                    <div class="for-overflow">
-                                        {% for c in p.comments.all %}
-                                        <div class="comments">
-                                            <div class="style-comment">
-                                                <div class="comment-header">
-                                                    <div class="commenter-circle-div">
-                                                        <div class="commenter-circle">
-                                                            {% for userprofile in Userdetail %}
-                                                            {% if userprofile.user == c.user %}
-                                                            <img src="{{userprofile.Profileimage.url}}" alt="" style="height: 100%; width: 100%; object-fit: cover; border-radius: 50%;">
-                                                            {% endif %}
-                                                            {% endfor %}
-                                                        </div>
-                                                    </div>
-                                                    <div class="commenter-name-div">
-                                                      
-                                                        <span class="commenter-name">{{c.user.first_name}}</span>
-                                                       
-                                                        <span class="comment-date"> -comentted at {{ p.created_at|date:"D, d M Y H:i:s" }}</span>
-                                                    </div>
+                                <div class="feedss">
+                                    <div class="feed-comments showss">
+                                        {% if p.comments.all %}
+                                        <div class="readmore-comment">
+                                            
+                                            <a href=""><span>Read more suggestions</span></a>
+                                          
+                                        </div>
+                                        {% endif %}
+                                        <div class="for-overflow">
+                                            {% for c in p.comments.all %}
+                                            <div class="commentsouter">
+                                                <div class="commentleft notowner">
+                                                    <span class="material-symbols-outlined commentlike">
+                                                        arrow_upward
+                                                        </span>
+                                                    <span class="cmntlikecount">343</span>    
                                                 </div>
-                                                <div class="comment-content">
-                                                    <div class="comment-jointer">
-                                                        <div class="cmnt-vertical-line"></div>
-                                                    </div>
-                                                    <div class="comment-flash">
-                                                        <div class="actual-comment">
-                                                            <span>{{c.text}}</span>
-                                                        </div>
-                                                        <div class="comment-option">
-                                                            <div class="reply-opt-text comment-opt-text">
-                                                                <a href=""><span>Reply</span></a>
-                                                            </div>
-                                                            <div class="report-opt-text comment-opt-text">
-                                                                <a href=""><span>Report</span></a>
-                                                            </div>
-                                                            <div class="report-opt-text comment-opt-text">
-                                                                <a class="cmntacc"><span>0 replies</span></a>
-                                                            </div>
-                                                            <div class="reply-count-opt">
-                                                                <span class="material-symbols-outlined cmnttoroticon">
-                                                                    expand_more
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                        <!-- <div class="recursion-comment">
-                                                            <div class="comments">
-                                                                <div class="style-comment">
-                                                                    <div class="comment-header">
-                                                                        <div class="commenter-circle-div">
-                                                                            <div class="commenter-circle"></div>
-                                                                        </div>
-                                                                        <div class="commenter-name-div">
-                                                                            <span class="commenter-name">Gaurav</span>
-                                                                            <span class="comment-date"> 10 hours
-                                                                                ago</span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="comment-content">
-                                                                        <div class="comment-jointer">
-                                                                            <div class="cmnt-vertical-line"></div>
-                                                                        </div>
-                                                                        <div class="comment-flash">
-                                                                            <div class="actual-comment">
-                                                                                <span>Lorem ipsum dolor sit amet
-                                                                                    consectetur
-                                                                                    adipisicing elit. Veniam dolores
-                                                                                    quisquam animi reprehenderit
-                                                                                    adipisci,
-                                                                                    expedita cumque aut qui dicta
-                                                                                    dolorem
-                                                                                    nesciunt cupiditate? Sapiente, ea
-                                                                                    atque
-                                                                                    laboriosam pariatur incidunt
-                                                                                    dignissimos
-                                                                                    soluta! lor</span>
-                                                                            </div>
-                                                                            <div class="comment-option">
-                                                                                <div
-                                                                                    class="reply-opt-text comment-opt-text">
-                                                                                    <a href=""><span>Reply</span></a>
-                                                                                </div>
-                                                                                <div
-                                                                                    class="report-opt-text comment-opt-text">
-                                                                                    <a href=""><span>Report</span></a>
-                                                                                </div>
-                                                                                <div
-                                                                                    class="report-opt-text comment-opt-text">
-                                                                                    <a class="cmntacc"><span>4
-                                                                                            replies</span></a>
-                                                                                </div>
-                                                                                <div class="reply-count-opt">
-                                                                                    <span
-                                                                                        class="material-symbols-outlined cmnttoroticon">
-                                                                                        expand_more
-                                                                                    </span>
-                                                                                </div>
-                                                                            </div>
-                                                                         
-                                                                        </div>
-                                                                    </div>
+                                                <div class="commentleft owner" style="display: none;">
+                                                    <span class="material-symbols-outlined">
+                                                        check
+                                                        </span>
+                                                    <span class="topanswer">Top suggest</span>    
+    
+                                                </div>
+                                                <div class="comments">
+                                                    <div class="style-comment">
+                                                        <div class="comment-header">
+                                                            <div class="commenter-circle-div">
+                                                                <div class="commenter-circle">
+                                                                    <a href="/myprofile-lg/?pk={{c.user_id}}">
+                                                                    {% for userprofile in Userdetail %}
+                                                                    {% if userprofile.user == c.user %}
+                                                                    <img src="{{userprofile.Profileimage.url}}" alt="" style="height: 100%; width: 100%; object-fit: cover; border-radius: 50%;">
+                                                                    {% endif %}
+                                                                    {% endfor %}
+                                                                    </a>
                                                                 </div>
                                                             </div>
-                                                        </div> -->
+                                                            <div class="commenter-name-div">
+                                                              
+                                                                <span class="commenter-name">{{c.user.first_name}}</span>
+                                                               
+                                                                <span class="comment-date"> -comentted at {{ p.created_at|date:"D, d M Y H:i:s" }}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="comment-content">
+                                                            <div class="comment-jointer">
+                                                                <div class="cmnt-vertical-line"></div>
+                                                            </div>
+                                                            <div class="comment-flash">
+                                                                <div class="actual-comment">
+                                                                    <span>{{c.text}}</span>
+                                                                </div>
+                                                               
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
+                                                {% if p.user == user %}
+                                                <div class="ownercmntopt">
+                                                    <span class="material-symbols-outlined">
+                                                        check
+                                                        </span>
+                                                </div>
+                                                {% endif %}
+                                            </div>
+                                            
+                                            {% endfor %}
+                                            
+                                        </div>
+    
+                                        <div class="user-cmnt-opt">
+                                            <div class="cmnt-user-circle-div">
+                                                <div class="cmnt-user-circle">
+                                                    {% for userdetail in Userdetail %}
+                                                    {% if userdetail.user == user %}
+                                                    <img src="{{ userdetail.Profileimage.url }}"
+                                                        alt="">
+                                                        {% endif %}
+                                                        {% endfor %}
+                                                </div>
+                                            </div>
+                                            <div class="cmnt-input">
+                                                <div class="design-cmnt-input">
+                                                    <form action="" id="commentform" method="post">
+                                                        {% csrf_token %}
+                                                    <div class="input-form">
+                                                        <input type="text" name="commentvalue" placeholder="Comment here.......">
+                                                    </div>
+                                                    <div class="input-form-icon-opt">
+                                                        <div class="cmnt-icon-div">
+                                                            <span class="material-symbols-outlined">
+                                                                add_reaction
+                                                            </span>
+                                                        </div>
+                                                        <div class="cmnt-icon-div">
+                                                            <span class="material-symbols-outlined">
+                                                                image
+                                                            </span>
+                                                        </div>
+                                                        <div class="cmnt-icon-div">
+                                                            <span class="material-symbols-outlined">
+                                                                gif_box
+                                                            </span>
+                                                        </div>
+                                                        <button type="submit" name="commentform_submit" style="background-color: inherit; border: inherit;" value="{{ p.id }}">
+    
+                                                       
+                                                        <div class="cmnt-icon-div" >
+                                                            <span class="material-symbols-outlined">
+                                                                send
+                                                            </span>
+                                                        </div>
+                                                    </button>
+                                                    </div>
+                                                </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="feed-stories">
+                                        <div class="readmore-comment">
+                                            
+                                            <a href=""><span>Read more stories</span></a>
+                                          
+                                        </div>
+                                        {% for pstory in p.stories.all %}
+                                        <div class="userstories">
+                                            <div class="userstoryleft">
+                                                <div class="storyleftheader">
+                                                    <div class="userstorycircle">
+                                                        {% for userdetail in Userdetail %}
+                                                        {% if userdetail.user == pstory.user %}
+                                                        <img src="{{ userdetail.Profileimage.url }}"
+                                                            alt="">
+                                                            {% endif %}
+                                                            {% endfor %}
+                                                    </div>
+                                                    <div class="userstoryname"><span>{{pstory.user.first_name}}</span></div>
+                                                </div>
+                                                <div class="storyactualcontent">
+                                                    {{ pstory.text }}
+                                                </div>
+
+                                            </div>
+                                            <div class="userstoryright">
+                                                <span class="material-symbols-outlined likeicon">
+                                                    favorite
+                                                    </span>
+                                                    <span class="likes-count">22</span>
                                             </div>
                                         </div>
                                         {% endfor %}
-                                        
-                                    </div>
-
-                                    <div class="user-cmnt-opt">
-                                        <div class="cmnt-user-circle-div">
-                                            <div class="cmnt-user-circle">
-                                                {% for userdetail in Userdetail %}
-                                                {% if userdetail.user == user %}
-                                                <img src="{{ userdetail.Profileimage.url }}"
-                                                    alt="">
-                                                    {% endif %}
-                                                    {% endfor %}
+                                        <div class="user-cmnt-opt">
+                                            <div class="cmnt-user-circle-div">
+                                                <div class="cmnt-user-circle">
+                                                    {% for userdetail in Userdetail %}
+                                                    {% if userdetail.user == user %}
+                                                    <img src="{{ userdetail.Profileimage.url }}"
+                                                        alt="">
+                                                        {% endif %}
+                                                        {% endfor %}
+                                                </div>
+                                            </div>
+                                            <div class="cmnt-input">
+                                                <div class="design-cmnt-input">
+                                                    <form action="" id="commentform" method="post">
+                                                        {% csrf_token %}
+                                                    <div class="input-form">
+                                                        <input type="text" name="storyvalue" placeholder="Share your story here.......">
+                                                    </div>
+                                                    <div class="input-form-icon-opt">
+                                                      
+                                                
+                                                        <button type="submit" name="storyform_submit" style="background-color: inherit; border: inherit;" value="{{ p.id }}">
+    
+                                                       
+                                                        <div class="cmnt-icon-div" >
+                                                            <span class="material-symbols-outlined">
+                                                                send
+                                                            </span>
+                                                        </div>
+                                                    </button>
+                                                    </div>
+                                                </form>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="cmnt-input">
-                                            <div class="design-cmnt-input">
-                                                <form action="" id="commentform" method="post">
-                                                    {% csrf_token %}
-                                                <div class="input-form">
-                                                    <input type="text" name="commentvalue" placeholder="Comment here.......">
-                                                </div>
-                                                <div class="input-form-icon-opt">
-                                                    <div class="cmnt-icon-div">
-                                                        <span class="material-symbols-outlined">
-                                                            add_reaction
-                                                        </span>
-                                                    </div>
-                                                    <div class="cmnt-icon-div">
-                                                        <span class="material-symbols-outlined">
-                                                            image
-                                                        </span>
-                                                    </div>
-                                                    <div class="cmnt-icon-div">
-                                                        <span class="material-symbols-outlined">
-                                                            gif_box
-                                                        </span>
-                                                    </div>
-                                                    <button type="submit" name="commentform_submit" style="background-color: inherit; border: inherit;" value="{{ p.id }}">
+                                        {% if not subscribed %}
+                                        <div class="premiumbuy">
+                                            <span class="premiumlabel">Continue reading & share story with premium </span>
+                                            <span class="subscribebtn"><a href="{% url 'subscribe' %}">Subscribe</a></span>
+                                            <span class="premiumlabeldown">Enjoy every content, features and more..</span>
 
-                                                   
-                                                    <div class="cmnt-icon-div" >
-                                                        <span class="material-symbols-outlined">
-                                                            send
-                                                        </span>
-                                                    </div>
-                                                </button>
-                                                </div>
-                                            </form>
-                                            </div>
                                         </div>
+                                        {%endif%}
+
+
                                     </div>
                                 </div>
+                               
                             </div>
                         </div>
                     </div>
@@ -1832,6 +1070,41 @@
         <div class="feed-right-icon">
             <div class="feed-right-icon-div">
                 <div class="feed-right-collective-icon">
+                    <div class="collect-icon-href" >
+                        <a href="{% url 'dashboard' %}">
+                         <div class="right-icon-for-hover">
+                             <span class="material-symbols-outlined">
+                                 mindfulness
+                                 </span>
+                         </div>
+                        </a>
+ 
+                         <span class="collect-icon-tooltip" id="notification-tooltip">Mindfulness</span>
+                     </div>
+                    
+                    <div class="collect-icon-href openwellbeing" >
+                       
+                         <div class="right-icon-for-hover">
+                            <span class="material-symbols-outlined">
+                                monitoring
+                                </span>
+                         </div>
+                     
+ 
+                         <span class="collect-icon-tooltip" id="notification-tooltip">Monitoring</span>
+                     </div>
+                    
+                    <div class="collect-icon-href" >
+                        <a href="{% url 'upcomings' %}">
+                         <div class="right-icon-for-hover">
+                            <span class="material-symbols-outlined">
+                                calendar_month
+                                </span>
+                         </div>
+                        </a>
+ 
+                         <span class="collect-icon-tooltip" id="notification-tooltip">Upcomings</span>
+                     </div>
                     <div class="collect-icon" onclick="rightbarclick('notification')">
                         <div class="right-icon-for-hover">
                             <span class="material-symbols-outlined">
@@ -2575,6 +1848,8 @@
     {% include "eventForm.html" %}
     {% include "storyadd.html" %}
     {% include "storyview.html" %}
+    {% include "editpannel.html" %}
+    {% include "wellbeing.html" %}
 
 </div>
 {% endblock %}

@@ -34,6 +34,18 @@ urlpatterns = [
     path("content/", views.content, name="content"),
     path("content0/", views.content0, name="content0"),
     path("events/", views.eventform , name="event"),
+    path("subscribe/", views.subscribe, name="subscribe"),
+    path("mindfulness/", views.mindfulness, name="mindfulness"),
+    path("yoga/", views.yoga, name="yoga"),
+    path("workout/", views.workout, name="workout"),
+    path("dashboard/", views.dashboard, name="dashboard"),
+    path("meditation/", views.meditation, name="meditation"),
+    path("interest/", views.interest, name="interest"),
+    path("forum/", views.forum, name="forum"),
+    path("community/<str:pk>", views.community, name="community"),
+    path('getMessages/<str:pk>/', views.getMessages, name='getMessages'),
+    path('upcomings/', views.upcomings, name='upcomings'),
+    
 ]
 
 

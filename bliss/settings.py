@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     "home_card",
     "main_videos",
     "user",
-    "search"
+    "search",
+    "forum",
 ]
 
 MIDDLEWARE = [
